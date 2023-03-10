@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <!--    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">-->
+</head>
+<body>
+
+<div class="wrapper_index text-center">
+    <h1>Добро пожаловать!</h1><br><br>
+    <td>
+        <a th:if="${isAuth == 'ADMIN'}" th:href="@{/admin}" class="btn btn-success">Страница адимна</a>
+        <a th:if="${isAuth == 'USER'}" th:href="@{/client}" class="btn btn-warning">Страница покупателя</a>
+        <a th:href="@{/catalog}" class="btn btn-warning">Каталог</a>
+        <a th:if="${isAuth == null}" th:href="@{/login}" class="btn btn-primary">Логин/Регистрация</a>
+    </td>
+    <h1><a th:if="${isAuth != null}" th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a></h1>
+</div>
+</body>
+</html>
