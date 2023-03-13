@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>item-form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Добавить новый товар</h1><br><br>
+    <div>
+        <form method="post" th:action="@{/product/add/}" th:object="${product}"
+              enctype="multipart/form-data">
+            <label for="product-name">Название товара:</label>
+            <input id="product-name" th:type="text" th:field="*{productName}" required minlength="1" maxlength="255">
+            <label>
+                Название товара:
+                <input th:type="file" th:name="previewImageData">
+            </label>
+            <button class="btn btn-primary">Добавить товар</button>
+            <a th:href="@{/product/}" class="btn btn-dark">Назад</a>
+        </form>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+    </div>
+</div>
+</body>
+</html>

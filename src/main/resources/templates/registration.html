@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_login text-center">
+  <form th:action="@{/client/add}"  method="post">
+    <h1>Регистрация</h1>
+    <label>
+      Логин :
+      <input type="text" name="username" required minlength="1" maxlength="25"/>
+    </label>
+    <label>
+      Пароль :
+      <input type="password" name="password" required minlength="1" maxlength="25" />
+    </label>
+    <label>
+      Повторите пароль :
+      <input type="password" name="repeat_password" required minlength="1" maxlength="255" />
+    </label>
+    <th:block th:if="${error != null}" class="alert">
+      [[${error}]]
+    </th:block>
+    <button class="btn btn-warning">Регистрация</button>
+  </form>
+  <a th:href="@{/logout}" class="btn btn-outline-dark">Назад</a>
+</div>
+</body>
+</html>

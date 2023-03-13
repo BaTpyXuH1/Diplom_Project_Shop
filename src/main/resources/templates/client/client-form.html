@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user-form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <div>
+        <h1>Добавить нового покупателя</h1><br><br>
+        <form method="post" th:action="@{/client/add/}" th:object="${client}">
+            <label for="client-name">Имя клиента:</label>
+            <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255">
+            <button class="btn btn-success">Добавить покупателя</button>
+            <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
+        </form>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+    </div>
+</div>
+</body>
+</html>

@@ -1,13 +1,17 @@
 package org.top.diplom_project_shop.model.dao.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.top.diplom_project_shop.model.entity.Order;
+import org.top.diplom_project_shop.model.repository.OrderRepository;
 
 import java.util.List;
 
 public class DbDaoOrderImpl implements IDaoOrder{
+    @Autowired
+    private OrderRepository orderRepository;
     @Override
     public List<Order> listAll() {
-        return null;
+        return (List<Order>) orderRepository.findAll();
     }
 
     @Override

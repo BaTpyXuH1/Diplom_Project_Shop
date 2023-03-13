@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order-list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
+    <h1>Пункт выдачи товара</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Отправление</th>
+                <th>Меню навигации</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="order :${orders} ">
+                <tr>
+                    <td><h1>[[${order.id}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/order/detail/' + ${order.id}}" class="btn"><h1>[[${order.description}]]</h1></a>
+                    </td>
+                    <td>
+                        <a th:if="${isAdmin}" th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAdmin}" th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
+                        <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a>
+                        <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <br><br>
+        <div>
+            <a th:if="${isAdmin}" th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
+        </div>
+        <br><br>
+        <h3><a th:href="@{/}">Вернуться на главную</a></h3>
+        [[${goodMsg}]]
+    </div>
+</div>
+</body>
+</html>

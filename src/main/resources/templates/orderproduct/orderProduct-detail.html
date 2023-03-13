@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderItem-detail</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Описание</h1><br><br>
+    <div>
+        <h2>[[${orderProduct}]]</h2><br><br>
+        <td><img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="500" height="400">
+        </td>
+        <a th:href="@{/orderProduct/}" class="btn btn-dark"><h1>Назад</h1></a>
+    </div>
+</div>
+</body>
+</html>

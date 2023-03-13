@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderItem-list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+        <h1>Изменить кол-во товаров</h1>
+        <div>
+            <form method="post" th:action="@{/orderProduct/update/}" th:object="${orderProduct}">
+                <input th:field="*{id}" hidden/>
+                <input th:value="*{order.id}" th:field="*{order}" hidden/>
+                <input th:value="*{orderProduct.id}" th:field="*{product}" hidden/>
+                <label for="quantityProduct-name">Кол-во товаров</label>
+                <input id="quantityProduct-name" th:type="number" th:field="*{quantityProduct}"/>
+                <td><img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="300"
+                         height="200"></td>
+                <button class="btn btn-danger">Сохранить</button>
+                <a th:href="@{/orderProduct/}" class="btn btn-dark">Назад</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

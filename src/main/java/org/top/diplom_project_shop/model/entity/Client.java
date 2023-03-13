@@ -36,6 +36,11 @@ public class Client implements UserDetails {
         this.role = role;
     }
 
+    public Client(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -70,7 +75,7 @@ public class Client implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.role.equals("admin"))
+        if (this.role.equals("ADMIN"))
             return Collections.<GrantedAuthority>singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
         else
             return Collections.<GrantedAuthority>singletonList(new SimpleGrantedAuthority("ROLE_USER"));
@@ -87,22 +92,22 @@ public class Client implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public void setPassword(String password) {
@@ -117,4 +122,12 @@ public class Client implements UserDetails {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>client-update</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Изменить покупателя</h1>
+    <div>
+        <form method="post" th:action="@{/client/update/}" th:object="${client}">
+            <input th:field="*{id}" hidden/>
+            <label for="client-name" style="color: white">Имя покупателя:</label>
+            <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255"/>
+            <button class="btn btn-warning">Сохранить</button>
+            <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

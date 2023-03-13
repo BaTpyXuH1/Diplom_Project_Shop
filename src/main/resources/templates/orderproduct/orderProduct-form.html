@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderItem-form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Добавить новую корзину товаров</h1><br><br>
+    <div>
+        <form method="post" th:action="@{/orderProduct/add/}" th:object="${orderProduct}">
+            <label for="orderProduct-quantityProduct">Кол-во товара :</label>
+            <input id="orderProduct-quantityProduct" th:type="number" th:field="*{quantityProduct}" required minlength="1"/>
+            <label for="orderProduct-order">Заказ</label>
+            <select id="orderProduct-order" th:field="*{order}">
+                <th:block th:each="order : ${orders}">
+                    <option th:value="${order.id}">[[${order}]]</option>
+                </th:block>
+            </select>
+            <label for="orderProduct-Product">Товар </label>
+            <select id="orderProduct-Product" th:field="*{product}">
+                <th:block th:each="product : ${products}">
+                    <option th:value="${product.id}">[[${product}]]</option>
+                </th:block>
+            </select>
+            <button class="btn btn-danger">Добавить корзину</button>
+            <a th:href="@{/orderProduct/}" class="btn btn-dark">Назад</a>
+        </form>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+    </div>
+</div>
+</body>
+</html>

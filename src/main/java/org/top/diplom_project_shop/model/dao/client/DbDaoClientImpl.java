@@ -6,7 +6,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.top.diplom_project_shop.model.entity.Client;
 import org.top.diplom_project_shop.model.repository.ClientRepository;
-
 import java.util.List;
 
 @Service
@@ -15,6 +14,7 @@ public class DbDaoClientImpl implements IDaoClient {
     private PasswordEncoder encoder;
     @Autowired
     private ClientRepository clientRepository;
+
 
 
     @Override
@@ -27,11 +27,12 @@ public class DbDaoClientImpl implements IDaoClient {
         return clientRepository.findById(id).orElse(null);
     }
 
+
     @Override
     @Transactional
     public Client add(Client client) {
         client.setPassword(encoder.encode(client.getPassword()));
-        if (client.getLogin().equals("admin"))
+        if (client.getLogin().equalsIgnoreCase("admin"))
             client.setRole("ADMIN");
         else
             client.setRole("USER");

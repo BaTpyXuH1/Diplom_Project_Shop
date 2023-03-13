@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderItem-list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
+    <h1>Корзина товаров</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Количество товаров</th>
+                <th>Название товара</th>
+                <th>Товар</th>
+                <th>Цена $</th>
+                <th>Артикул</th>
+                <th>Меню навигации</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="orderProduct :${orderProducts}">
+                <tr>
+                    <td><h1>[[${orderProduct.quantityProduct}]]</h1></td>
+                    <td><h1>[[${orderProduct.product.productName}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/orderProduct/detail/' + ${orderProduct.id}}">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="300" height="200">
+                        </a>
+                    </td>
+                    <td><h1>[[${orderProduct.product.productPrice}]]</h1></td>
+                    <td><h1>[[${orderProduct.product.productArticle}]]</h1></td>
+                    <td>
+                        <a th:if="${isAdmin}" th:href="@{'/orderProduct/delete/' + ${orderProduct.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAdmin}" th:href="@{'/orderProduct/update/' + ${orderProduct.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAdmin}" th:href="@{/templates/client/ }" class="btn btn-success">Список покупателей</a>
+                        <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a>
+                        <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <br><br>
+        <div>
+            <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
+        </div>
+        <br><br>
+        <h3><a th:href="@{/}">Вернуться на главную</a></h3>
+        [[${goodMsg}]]
+    </div>
+</div>
+</body>
+</html>

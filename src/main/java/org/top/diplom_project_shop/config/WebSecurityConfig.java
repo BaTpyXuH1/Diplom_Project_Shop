@@ -33,10 +33,10 @@ import javax.sql.DataSource;
             http
                     .authorizeHttpRequests((requests) -> requests
                             .requestMatchers("/", "/webjars/**").permitAll()
-                                    .requestMatchers("/user").hasRole("USER")
-                                    .requestMatchers("/admin").hasRole("ADMIN")
-                                    .requestMatchers( "/register","/service/generateBase").anonymous()
-                                    .requestMatchers("/catalog").authenticated()
+                                    .requestMatchers("/user/*").hasRole("USER")
+                                    .requestMatchers("/admin/*").hasRole("ADMIN")
+                                    .requestMatchers( "/registration","/service/generateBase","/client/add").anonymous()
+                                    .requestMatchers("/catalog","/logout").authenticated()
 
 //                            .requestMatchers("/user/*","/user/delete/**","/order/delete/**"
 //                            ).hasRole("ADMIN")
@@ -50,6 +50,7 @@ import javax.sql.DataSource;
                             .failureUrl("/login?error=true")
                             .defaultSuccessUrl("/")
                     )
+
                     .logout().logoutSuccessUrl("/login");
 
             return http.build();
