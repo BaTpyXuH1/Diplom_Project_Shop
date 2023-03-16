@@ -1,0 +1,25 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.wrapper_index {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/fitness_img.jpg");
+}
+.wrapper_login {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/ligh_img.jpg");
+}
+.wrapper_list{
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/fitness_img.jpg");
+}

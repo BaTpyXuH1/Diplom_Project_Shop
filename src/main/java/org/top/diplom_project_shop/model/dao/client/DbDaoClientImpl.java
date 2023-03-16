@@ -1,11 +1,12 @@
 package org.top.diplom_project_shop.model.dao.client;
 
-import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.top.diplom_project_shop.model.entity.Client;
 import org.top.diplom_project_shop.model.repository.ClientRepository;
+
 import java.util.List;
 
 @Service
@@ -14,7 +15,6 @@ public class DbDaoClientImpl implements IDaoClient {
     private PasswordEncoder encoder;
     @Autowired
     private ClientRepository clientRepository;
-
 
 
     @Override
@@ -29,7 +29,6 @@ public class DbDaoClientImpl implements IDaoClient {
 
 
     @Override
-    @Transactional
     public Client add(Client client) {
         client.setPassword(encoder.encode(client.getPassword()));
         if (client.getLogin().equalsIgnoreCase("admin"))
@@ -41,7 +40,6 @@ public class DbDaoClientImpl implements IDaoClient {
 
 
     @Override
-    @Transactional
     public Client update(Client client) {
         Client clientTemp = clientRepository.findById(client.getId()).orElse(null);
         if (clientTemp != null)
@@ -50,11 +48,11 @@ public class DbDaoClientImpl implements IDaoClient {
     }
 
     @Override
-    @Transactional
     public Client delete(Integer id) {
-        Client item = clientRepository.findById(id).orElse(null);
-        clientRepository.deleteById(id);
-        return item;
+        Client client = clientRepository.findById(id).orElse(null);
+        if (client != null)
+            clientRepository.deleteById(id);
+        return client;
     }
 
     @Override

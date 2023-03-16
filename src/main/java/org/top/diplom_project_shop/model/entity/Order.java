@@ -17,13 +17,19 @@ public class Order {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-    private Set<OrderProduct> orderProductSet = new HashSet<>();
+    private Set<OrderProduct> orderProductSet;
 
     public Order() {}
 
     public Order(String description, Client client) {
         this.description = description;
         this.client = client;
+    }
+
+    public Order(String description, Client client, Set<OrderProduct> orderProductSet) {
+        this.description = description;
+        this.client = client;
+        this.orderProductSet = new HashSet<>();
     }
 
     public Integer getId() {

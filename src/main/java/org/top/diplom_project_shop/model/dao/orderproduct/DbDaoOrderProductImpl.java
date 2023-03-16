@@ -1,6 +1,6 @@
 package org.top.diplom_project_shop.model.dao.orderproduct;
 
-import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.top.diplom_project_shop.model.entity.Order;

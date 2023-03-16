@@ -25,7 +25,7 @@ public class Client implements UserDetails {
     @Column
     private String role;
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
-    private Set<Order> orderSet = new HashSet<>();
+    private Set<Order> orderSet ;
 
     public Client() {}
 
@@ -34,6 +34,11 @@ public class Client implements UserDetails {
         this.login = login;
         this.password = password;
         this.role = role;
+    }
+
+    public Client(String clientName, Set<Order> orderSet) {
+        this.clientName = clientName;
+        this.orderSet = new HashSet<>();
     }
 
     public Client(String login, String password) {
@@ -52,6 +57,7 @@ public class Client implements UserDetails {
     public String getClientName() {
         return clientName;
     }
+
 
     public void setClientName(String clientName) {
         this.clientName = clientName;

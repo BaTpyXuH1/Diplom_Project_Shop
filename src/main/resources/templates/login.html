@@ -12,8 +12,9 @@
         <h1>Авторизация</h1>
         <label>
             Логин :
-            <input type="text" name="username" required minlength="1" maxlength="255" />
+            <input type="text" name="username" required minlength="1" maxlength="255"/>
         </label>
+
         <label>
             Пароль :
             <input type="password" name="password" required minlength="1" maxlength="255"/>
@@ -21,9 +22,9 @@
         <th:block th:if="${param.error}" class="alert">
             Ошибка ввода данных...
         </th:block>
-        <button class="btn btn-warning"> Войти</button>
+        <button class="btn btn-warning" > Войти</button><br><br>
+        <a th:href="@{/registration}" class="btn btn-primary">Регистрация</a>
     </form>
-    <a th:href="@{/registration}">Регистрация</a>
 </div>
 </body>
 </html>
