@@ -19,18 +19,21 @@ public class DbDaoClientImpl implements IDaoClient {
 
 
     @Override
+    @Transactional
     public List<Client> listAll() {
         return (List<Client>) clientRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Client getById(Integer id) {
         return clientRepository.findById(id).orElse(null);
     }
 
 
-    @Transactional
+
     @Override
+    @Transactional
     public Client add(Client client) {
         client.setPassword(encoder.encode(client.getPassword()));
         if (client.getLogin().equalsIgnoreCase("admin"))
@@ -40,8 +43,9 @@ public class DbDaoClientImpl implements IDaoClient {
         return clientRepository.save(client);
     }
 
-    @Transactional
+
     @Override
+    @Transactional
     public Client update(Client client) {
         Client clientTemp = clientRepository.findById(client.getId()).orElse(null);
         if (clientTemp != null)
@@ -49,8 +53,9 @@ public class DbDaoClientImpl implements IDaoClient {
         return clientTemp;
     }
 
-    @Transactional
+
     @Override
+    @Transactional
     public Client delete(Integer id) {
         Client client = clientRepository.findById(id).orElse(null);
         if (client != null)

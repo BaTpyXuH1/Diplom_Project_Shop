@@ -32,9 +32,9 @@
                     <td><h1>[[${product.productPrice}]]</h1></td>
                     <td>
                         <a th:href="@{'/product/delete/' + ${product.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:if="${isAdmin}" th:href="@{'/product/update/' + ${product.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                        <a th:if="${isAdmin}" th:href="@{/templates/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:if="${isAuth}" th:href="@{'/product/update/' + ${product.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAuth}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:if="${isAuth}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
                     </td>
                 </tr>
