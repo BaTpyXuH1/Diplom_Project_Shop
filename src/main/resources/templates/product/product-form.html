@@ -10,8 +10,7 @@
 <div class="wrapper_list text-center">
     <h1>Добавить новый товар</h1><br><br>
     <div>
-        <form method="post" th:action="@{/product/add/}" th:object="${product}"
-              enctype="multipart/form-data">
+        <form method="post" th:action="@{/product/add/}" th:object="${product}" enctype="multipart/form-data">
             <label for="product-name">Название товара:</label>
             <input id="product-name" th:type="text" th:field="*{productName}" required minlength="1" maxlength="255">
             <label>

@@ -1,6 +1,7 @@
 package org.top.diplom_project_shop.model.dao.orderproduct;
 
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.top.diplom_project_shop.model.entity.Order;
@@ -24,17 +25,20 @@ public class DbDaoOrderProductImpl implements IDaoOrderProduct{
 
 
     @Override
+    @Transactional
     public List<OrderProduct> listAll() {
         return (List<OrderProduct>) orderProductRepository.findAll();
 
     }
 
     @Override
+    @Transactional
     public OrderProduct getById(Integer id) {
         return orderProductRepository.findById(id).orElse(null);
     }
 
     @Override
+    @Transactional
     public OrderProduct add(OrderProduct orderProduct) {
         Order order = orderRepository.findById(orderProduct.getOrder().getId()).orElse(null);
         if (order == null)
@@ -46,6 +50,7 @@ public class DbDaoOrderProductImpl implements IDaoOrderProduct{
     }
 
     @Override
+    @Transactional
     public OrderProduct update(OrderProduct orderProduct) {
         OrderProduct orderProductTemp = orderProductRepository.findById(orderProduct.getId()).orElse(null);
         if (orderProductTemp != null)
@@ -54,6 +59,7 @@ public class DbDaoOrderProductImpl implements IDaoOrderProduct{
     }
 
     @Override
+    @Transactional
     public OrderProduct delete(Integer id) {
         OrderProduct orderProduct = orderProductRepository.findById(id).orElse(null);
         orderProductRepository.deleteById(id);

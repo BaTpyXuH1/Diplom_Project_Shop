@@ -3,14 +3,17 @@ package org.top.diplom_project_shop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.top.diplom_project_shop.model.dao.order.IDaoOrder;
+import org.top.diplom_project_shop.model.dao.product.DbDaoProductImpl;
 import org.top.diplom_project_shop.model.dao.product.IDaoProduct;
 import org.top.diplom_project_shop.model.entity.Order;
 import org.top.diplom_project_shop.model.entity.Product;
+import org.top.diplom_project_shop.model.repository.ProductRepository;
 
 
 import java.io.IOException;
@@ -21,9 +24,9 @@ import java.util.List;
 @RequestMapping("/product")
 
 public class ProductController {
+
     @Autowired
     private IDaoProduct daoProduct;
-
     @Autowired
     private IDaoOrder daoOrder;
 
@@ -31,12 +34,12 @@ public class ProductController {
     @GetMapping("/")
     public String listAll(Model model, Authentication auth) {
         List<Product> products = daoProduct.listAll();
-        if (auth != null)
-            model.addAttribute("isAuth", auth.getAuthorities().toString().contains("ADMIN"));
-        else
-            model.addAttribute("isAuth",false);
+//        if (auth != null)
+//            model.addAttribute("isAuth", auth.getAuthorities().toString().contains("ADMIN"));
+//        else
+//            model.addAttribute("isAuth",false);
         model.addAttribute("product", daoProduct.listAll());
-        model.addAttribute("product", products);
+        model.addAttribute("products", products);
         return "/product/product-list";
     }
 
@@ -50,8 +53,8 @@ public class ProductController {
     }
 
     @PostMapping("/add/")
-    public String saveProduct(Product product,@RequestParam("previewImageData") MultipartFile imageData,
-                           RedirectAttributes ra) throws IOException {
+    public String saveProduct(Product product, @RequestParam("previewImageData") MultipartFile imageData,
+                              RedirectAttributes ra) throws IOException {
         String imageDataAsString = Base64
                 .getEncoder()
                 .encodeToString(imageData.getBytes());
@@ -68,7 +71,7 @@ public class ProductController {
     }
 
     @GetMapping("/update/{id}")
-    public String getUpdateItem(@PathVariable("id") Integer productId, Model model) {
+    public String getUpdateProduct(@PathVariable("id") Integer productId, Model model) {
         Product product = daoProduct.getById(productId);
         model.addAttribute("product", product);
         return "/product/product-update";
@@ -81,7 +84,7 @@ public class ProductController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detail(@PathVariable("id") Integer productId, Model model) {
+    public String detailProduct(@PathVariable("id") Integer productId, Model model) {
         Product product = daoProduct.getById(productId);
         model.addAttribute("product", product);
         return "/product/product-detail";

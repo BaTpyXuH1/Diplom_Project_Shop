@@ -17,21 +17,21 @@ public class Product {
     private Integer productArticle;
     @Column
     private Integer productPrice;
-    @ManyToOne
-    @JoinColumn(name = "catalog_id")
-    private Catalog catalog;
+
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String previewImage;
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     private Set<OrderProduct> orderProductSet = new HashSet<>();
 
-    public Product() {}
 
-    public Product(String productName, Catalog catalog) {
-        this.productName = productName;
-        this.catalog = catalog;
+
+    public Product() {
+        id = -1;
+        productArticle = (int)(Math.random()*100000);
+        productPrice = (int)(Math.random()*1000);
     }
+
 
     public Product(String productName, Integer productArticle, Integer productPrice, String previewImage) {
         this.productName = productName;
@@ -56,13 +56,6 @@ public class Product {
         this.productName = productName;
     }
 
-    public Catalog getCatalog() {
-        return catalog;
-    }
-
-    public void setCatalog(Catalog catalog) {
-        this.catalog = catalog;
-    }
 
     public Integer getProductArticle() {
         return productArticle;
@@ -98,14 +91,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", productName='" + productName + '\'' +
-                ", productArticle=" + productArticle +
-                ", productPrice=" + productPrice +
-                ", catalog=" + catalog +
-                ", previewImage='" + previewImage + '\'' +
-                ", orderProductSet=" + orderProductSet +
-                '}';
+        return "Название товара : " + productName + " , " + "Артикул : " + productArticle +
+                " , " + "Цена : " + productPrice + "$";
     }
 }

@@ -64,6 +64,7 @@ public class DbDaoClientImpl implements IDaoClient {
     }
 
     @Override
+    @Transactional
     public Client getClientByLogin(String login) {
         return clientRepository.findByLogin(login);
     }

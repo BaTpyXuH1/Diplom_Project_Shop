@@ -27,7 +27,6 @@ public class DbDaoProductImpl implements IDaoProduct{
     @Override
     @Transactional
     public Product add(Product product) {
-        productRepository.findById(product.getId()).orElse(null);
         return productRepository.save(product);
     }
 

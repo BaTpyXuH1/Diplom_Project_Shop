@@ -26,15 +26,15 @@
                     <td><h1>[[${product.productName}]]</h1></td>
                     <td>
                         <a th:href="@{'/product/detail/' + ${product.id}}">
-                            <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200">
+                           <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200">
                         </a>
                     </td>
-                    <td><h1>[[${product.productPrice}]]</h1></td>
+                    <td><h1>[[${product.productPrice}]]$</h1></td>
                     <td>
                         <a th:href="@{'/product/delete/' + ${product.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:if="${isAuth}" th:href="@{'/product/update/' + ${product.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:if="${isAuth}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                        <a th:if="${isAuth}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:href="@{'/product/update/' + ${product.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
                     </td>
                 </tr>
