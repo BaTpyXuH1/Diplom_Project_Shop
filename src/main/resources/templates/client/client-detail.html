@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>user-detail</title>
+    <title>client-detail</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
@@ -11,7 +11,8 @@
         <h1>Описание покупателя</h1>
         <div>
             <h2>[[${client}]]</h2><br><br>
-            <a th:href="@{/client/}" class="btn btn-dark"><h1>Назад</h1></a>
+            <a th:if="${isAuth != 'USER'}" th:href="@{/client/client-list}" class="btn btn-dark"><h1>Назад</h1></a>
+            <a th:if="${isAuth != 'ADMIN'}" th:href="@{/}" class="btn btn-dark"><h1>Назад</h1></a>
         </div>
     </div>
 </body>

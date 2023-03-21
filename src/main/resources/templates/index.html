@@ -8,14 +8,17 @@
 </head>
 <body>
 <div class="wrapper_index text-center">
-    <h1>Добро пожаловать!</h1><br><br>
+    [[${isAuth}]]
+    <h1 th:if="${isAuth != 'anon'}">Добро пожаловать [[${isAuth}]]!</h1><br><br>
+    <h1 th:if="${isAuth == 'anon'}">Добро пожаловать !</h1><br><br>
+    <h1 th:if="${isAuth == 'anon'}">Зарегистрируйтесь или аунтифицируйтесь</h1><br><br>
     <div>
         <h1>
-            <a th:if="${isAuth.contains('ADMIN')}" th:href="@{/auth/admin}" class="btn btn-success">Страница адимна</a>
-            <a th:if="${isAuth.contains('USER')}" th:href="@{/client}" class="btn btn-warning">Страница покупателя</a>
-            <a th:href="@{/catalog}" class="btn btn-warning">Каталог</a>
+            <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}" th:href="@{/client/}" class="btn btn-success">Страница адимна</a>
+            <a th:if="${isAuth == 'USER' &&  isAuth != 'anon'}" th:href="@{/client/client-detail}" class="btn btn-primary">Страница покупателя</a>
+            <a th:if="${isAuth != 'anon'}" th:href="@{/catalog/catalog}" class="btn btn-warning">Каталог</a>
             <a th:if="${isAuth == 'anon'}" th:href="@{/login}" class="btn btn-primary">Логин/Регистрация</a>
-            <a th:if="${isAuth != null && isAuth != 'anon'}" th:href="@{/logout}" class="btn btn-outline-dark">Выйти из аккаунта</a>
+            <a th:if="${isAuth != 'anon'}" th:href="@{/logout}" class="btn btn-outline-dark">Выйти из аккаунта</a>
         </h1>
     </div>
 </div>

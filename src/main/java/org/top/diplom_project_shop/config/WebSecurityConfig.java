@@ -35,12 +35,11 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
 
-                                .requestMatchers("/user/*").hasRole("USER")
                                 .requestMatchers("/admin/*").hasRole("ADMIN")
-                                .requestMatchers("/registration", "/service/generateBase", "/client/add").anonymous()
-                                .requestMatchers("/catalog", "/logout").authenticated()
-                                .requestMatchers("/", "/webjars/**").permitAll()
-//                                    .requestMatchers("/auth/admin").hasRole("ADMIN")
+                                .requestMatchers("/catalog","/registration", "/service/generateBase", "/client/add").anonymous()
+                                .requestMatchers( "/client/add","/catalog","/logout").authenticated()
+                                .requestMatchers( "/","/catalog","/webjars/**").permitAll()
+
 
 //                            .requestMatchers("/user/*","/user/delete/**","/order/delete/**"
 //                            ).hasRole("ADMIN")

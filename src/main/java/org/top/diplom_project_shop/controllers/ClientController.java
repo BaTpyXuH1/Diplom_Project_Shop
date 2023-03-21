@@ -39,13 +39,7 @@ public class ClientController {
         daoClient.add(client);
         return "/index";
     }
-//    @PostMapping("/admin")
-//    public String adminAfterLogin(HttpServletRequest request) {
-//        if (request.isUserInRole("ROLE_ADMIN")) {
-//            return "redirect:/auth/admin";
-//        }
-//        return "redirect:/auth/user";
-//    }
+
     @GetMapping("/")
     public String listALl(Model model) {
         List<Client> clients = daoClient.listAll();
@@ -57,13 +51,13 @@ public class ClientController {
     public String getAddForm(Model model){
         Client client = new Client();
         model.addAttribute("client",client);
-        return "client/client-form";
+        return "/client/client-form";
 
     }
     @PostMapping("/add/")
     public String addNewClient(Client client, RedirectAttributes ra){
         Client addedClient = daoClient.add(client);
-//        ra.addFlashAttribute("goodMsg","Client " + addedClient + "added");
+        ra.addFlashAttribute("goodMsg","Client " + addedClient + "added");
         return "redirect:/client/";
 
     }

@@ -41,7 +41,6 @@ public class MainController {
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
-        System.out.println("логаут начал работать");
         if (SecurityContextHolder.getContext().getAuthentication() != null)
             request.getSession().invalidate();
         return "redirect:/";

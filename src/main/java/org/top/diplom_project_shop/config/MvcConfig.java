@@ -12,6 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
             registry.addViewController("/login").setViewName("login");
             registry.addViewController("/registration").setViewName("registration");
             registry.addViewController("/").setViewName("index");
+            registry.addViewController("/client/client-list").setViewName("client/client-list");
+            registry.addViewController("/client/client-form").setViewName("client/client-form");
+            registry.addViewController("/catalog/catalog").setViewName("catalog/catalog");
+            registry.addViewController("/client/client-detail").setViewName("client/client-detail");
+
+
 
         }
 

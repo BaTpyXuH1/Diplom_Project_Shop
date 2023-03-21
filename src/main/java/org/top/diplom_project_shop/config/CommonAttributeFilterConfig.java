@@ -1,4 +1,4 @@
-package org.top.diplom_project_shop.controllers;
+package org.top.diplom_project_shop.config;
 
 import jakarta.servlet.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Component
 @Order(5)
-public class CommonAttributeFilter implements Filter {
+public class CommonAttributeFilterConfig implements Filter {
     @Autowired
     private DbDaoClientImpl daoClient;
 

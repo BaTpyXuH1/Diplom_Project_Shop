@@ -1,6 +1,7 @@
 package org.top.diplom_project_shop.model.dao.client;
 
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,7 @@ public class DbDaoClientImpl implements IDaoClient {
     }
 
 
+    @Transactional
     @Override
     public Client add(Client client) {
         client.setPassword(encoder.encode(client.getPassword()));
@@ -38,7 +40,7 @@ public class DbDaoClientImpl implements IDaoClient {
         return clientRepository.save(client);
     }
 
-
+    @Transactional
     @Override
     public Client update(Client client) {
         Client clientTemp = clientRepository.findById(client.getId()).orElse(null);
@@ -47,6 +49,7 @@ public class DbDaoClientImpl implements IDaoClient {
         return clientTemp;
     }
 
+    @Transactional
     @Override
     public Client delete(Integer id) {
         Client client = clientRepository.findById(id).orElse(null);
