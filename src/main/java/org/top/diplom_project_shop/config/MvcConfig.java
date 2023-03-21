@@ -16,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
             registry.addViewController("/client/client-form").setViewName("client/client-form");
             registry.addViewController("/catalog/catalog").setViewName("catalog/catalog");
             registry.addViewController("/client/client-detail").setViewName("client/client-detail");
+            registry.addViewController("/orderProduct/orderProduct-detail").setViewName("orderProduct/orderProduct-detail");
 
 
 

@@ -51,5 +51,12 @@ public class Catalog {
         this.productSet = productSet;
     }
 
-
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", productSet=" + productSet +
+                '}';
+    }
 }

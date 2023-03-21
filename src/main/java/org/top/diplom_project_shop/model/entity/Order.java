@@ -63,4 +63,14 @@ public class Order {
     public void setOrderProductSet(Set<OrderProduct> orderProductSet) {
         this.orderProductSet = orderProductSet;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", client=" + client +
+                ", orderProductSet=" + orderProductSet +
+                '}';
+    }
 }

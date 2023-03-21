@@ -35,7 +35,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
 
-                                .requestMatchers("/admin/*").hasRole("ADMIN")
+                                .requestMatchers("/admin/*","/orderProduct/**").hasRole("ADMIN")
                                 .requestMatchers("/catalog","/registration", "/service/generateBase", "/client/add").anonymous()
                                 .requestMatchers( "/client/add","/catalog","/logout").authenticated()
                                 .requestMatchers( "/","/catalog","/webjars/**").permitAll()
