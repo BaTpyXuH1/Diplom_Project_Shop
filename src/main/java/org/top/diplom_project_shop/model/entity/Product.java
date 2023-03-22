@@ -29,9 +29,13 @@ public class Product {
     public Product() {
         id = -1;
         productArticle = (int)(Math.random()*100000);
-        productPrice = (int)(Math.random()*1000);
+
     }
 
+    public Product(String productName, String previewImage) {
+        this.productName = productName;
+        this.previewImage = previewImage;
+    }
 
     public Product(String productName, Integer productArticle, Integer productPrice, String previewImage) {
         this.productName = productName;

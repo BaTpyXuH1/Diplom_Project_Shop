@@ -16,7 +16,7 @@
         <h1>
             <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}" th:href="@{/client/}" class="btn btn-success">Страница адимна</a>
             <a th:if="${isAuth == 'USER' &&  isAuth != 'anon'}" th:href="@{/client/client-detail}" class="btn btn-primary">Страница покупателя</a>
-            <a th:if="${isAuth != 'anon'}" th:href="@{/product/product-list}" class="btn btn-warning">Каталог</a>
+            <a th:if="${isAuth != 'anon'}" th:href="@{/product/}" class="btn btn-warning">Каталог</a>
             <a th:if="${isAuth == 'anon'}" th:href="@{/login}" class="btn btn-primary">Логин/Регистрация</a>
             <a th:if="${isAuth != 'anon'}" th:href="@{/logout}" class="btn btn-outline-dark">Выйти из аккаунта</a>
         </h1>

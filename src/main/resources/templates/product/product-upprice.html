@@ -12,14 +12,9 @@
     <div>
         <form method="post" th:action="@{/product/update/}" th:object="${product}">
             <input th:field="*{id}" hidden/>
+            <label for="product-name">Название товара:</label>
+            <input id="product-name" th:type="text" th:field="*{productPrice}" required minlength="1" maxlength="255"/>
             <td><img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200"></td>
-            <br><br>
-            <label for="product-name"><h2>Название товара:</h2></label>
-            <input id="product-name" th:type="text" th:field="*{productName}" required minlength="1"
-                   maxlength="255"/><br>
-            <label for="product-price"><h2>Стоимость товара:</h2></label>
-            <input id="product-price" th:type="text" th:field="*{productPrice}" required minlength="1"
-                   maxlength="255"/><br>
             <button class="btn btn-primary">Сохранить</button>
             <a th:href="@{/product/}" class="btn btn-dark">назад</a>
         </form>

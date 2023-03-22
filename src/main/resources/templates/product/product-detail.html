@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>item-detail</title>
+    <title>product-detail</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
@@ -12,6 +12,7 @@
     <div>
         <h2>[[${product}]]</h2><br><br>
         <td><img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="500" height="400"></td>
+        <a th:href="@{/product/}" class="btn btn-danger"><h1>Добавить в корзину</h1></a>
         <a th:href="@{/product/}" class="btn btn-dark"><h1>Назад</h1></a>
     </div>
 </div>

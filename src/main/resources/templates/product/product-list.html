@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>item-list</title>
+    <title>product-list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
@@ -14,7 +14,7 @@
         <table class="table table-bordered">
             <thead class="table-dark">
             <tr>
-                <th>Название товара</th>
+                <th>ID</th>
                 <th>Товар</th>
                 <th>Цена $</th>
                 <th>Меню навигации</th>
@@ -23,18 +23,25 @@
             <tbody>
             <th:block th:each="product: ${products}">
                 <tr>
-                    <td><h1>[[${product.productName}]]</h1></td>
+                    <td><h1>[[${product.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/product/detail/' + ${product.id}}">
-                           <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300"
+                                 height="200">
                         </a>
                     </td>
-                    <td><h1>[[${product.productPrice}]]$</h1></td>
                     <td>
-                        <a th:href="@{'/product/delete/' + ${product.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:href="@{'/product/update/' + ${product.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                        <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:href="@{'/product/update/' + ${product.id}}"><h1 style="color:black">[[${product.productPrice}]]$</h1></a>
+                    </td>
+                    <td>
+                        <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}"
+                           th:href="@{'/product/delete/' + ${product.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}"
+                           th:href="@{'/product/update/' + ${product.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}" th:href="@{/order/}"
+                           class="btn btn-warning">Список заказов</a>
+                        <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}" th:href="@{/client/}"
+                           class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
                     </td>
                 </tr>
@@ -42,7 +49,8 @@
         </table>
         <br><br>
         <div>
-            <a th:href="@{/product/add/}" class="btn btn-primary"><h1>Добавить новый товар</h1></a>
+            <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}" th:href="@{/product/add/}" class="btn btn-primary"><h1>
+                Добавить новый товар</h1></a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернутся на главную</a></h3>

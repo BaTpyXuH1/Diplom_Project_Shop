@@ -7,15 +7,17 @@ import org.top.diplom_project_shop.model.entity.Product;
 import org.top.diplom_project_shop.model.repository.ProductRepository;
 
 import java.util.List;
+
 @Service
-public class DbDaoProductImpl implements IDaoProduct{
+public class DbDaoProductImpl implements IDaoProduct {
 
     @Autowired
     private ProductRepository productRepository;
+
     @Override
     @Transactional
     public List<Product> listAll() {
-        return (List<Product>) productRepository.findAll() ;
+        return (List<Product>) productRepository.findAll();
     }
 
     @Override
@@ -27,6 +29,15 @@ public class DbDaoProductImpl implements IDaoProduct{
     @Override
     @Transactional
     public Product add(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    @Transactional
+    public Product upPrice(Product product) {
+        Product productTemp = productRepository.findById(product.getId()).orElse(null);
+        if (productTemp != null)
+            product.setProductPrice(product.getProductPrice());
         return productRepository.save(product);
     }
 
