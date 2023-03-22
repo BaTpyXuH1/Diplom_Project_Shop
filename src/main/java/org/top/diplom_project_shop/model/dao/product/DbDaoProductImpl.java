@@ -36,18 +36,20 @@ public class DbDaoProductImpl implements IDaoProduct {
     @Transactional
     public Product upPrice(Product product) {
         Product productTemp = productRepository.findById(product.getId()).orElse(null);
-        if (productTemp != null)
-            product.setProductPrice(product.getProductPrice());
-        return productRepository.save(product);
+        if (productTemp == null)
+            return null;
+        productTemp.setProductPrice(product.getProductPrice());
+        return productRepository.save(productTemp);
     }
 
     @Override
     @Transactional
     public Product update(Product product) {
         Product productTemp = productRepository.findById(product.getId()).orElse(null);
-        if (productTemp != null)
-            productTemp.setProductName(productTemp.getProductName());
-        return productRepository.save(product);
+        if (productTemp == null)
+            return null;
+        productTemp.setProductName(product.getProductName());
+        return productRepository.save(productTemp);
     }
 
     @Override

@@ -72,6 +72,7 @@ public class ProductController {
 
     @GetMapping("/update/{id}")
     public String getUpdateProduct(@PathVariable("id") Integer productId, Model model) {
+        System.out.println("*****ID");
         Product product = daoProduct.getById(productId);
         model.addAttribute("product", product);
         return "/product/product-update";

@@ -26,12 +26,11 @@
                     <td><h1>[[${product.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/product/detail/' + ${product.id}}">
-                            <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300"
-                                 height="200">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{'/product/update/' + ${product.id}}"><h1 style="color:black">[[${product.productPrice}]]$</h1></a>
+                        <h1>[[${product.productPrice}]]$</h1>
                     </td>
                     <td>
                         <a th:if="${isAuth == 'ADMIN' && isAuth != 'anon'}"

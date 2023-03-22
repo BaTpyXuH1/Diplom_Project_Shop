@@ -37,8 +37,8 @@ public class WebSecurityConfig {
 
                                 .requestMatchers("/admin/*","/orderProduct/**").hasRole("ADMIN")
                                 .requestMatchers("/product","/registration", "/service/generateBase", "/client/add").anonymous()
-                                .requestMatchers( "/client/add","/product","/logout", "/product/add").authenticated()
-                                .requestMatchers( "/","/product","/webjars/**").permitAll()
+                                .requestMatchers( "/client/add", "/logout", "/product/add").authenticated()
+                                .requestMatchers( "/","/webjars/**").permitAll()
 
 
 //                            .requestMatchers("/user/*","/user/delete/**","/order/delete/**"

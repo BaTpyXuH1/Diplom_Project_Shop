@@ -11,16 +11,16 @@ import java.nio.file.Paths;
 
 @Configuration
     public class MvcConfig implements WebMvcConfigurer {
-        @Override
-        public void addResourceHandlers(ResourceHandlerRegistry registry) {
-            exposeDirectory("profile-images", registry);
-        }
-        private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {
-            Path uploadDir = Paths.get(dirName);
-            String uploadPath = uploadDir.toFile().getAbsolutePath();
-            if (dirName.startsWith("../")) dirName = dirName.replace("../", "");
-            registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
-        }
+//        @Override
+//        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//            exposeDirectory("profile-images", registry);
+//        }
+//        private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {
+//            Path uploadDir = Paths.get(dirName);
+//            String uploadPath = uploadDir.toFile().getAbsolutePath();
+//            if (dirName.startsWith("../")) dirName = dirName.replace("../", "");
+//            registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
+//        }
         @Override
         public void addViewControllers(ViewControllerRegistry registry) {
             registry.addViewController("/login").setViewName("login");
