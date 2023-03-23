@@ -11,16 +11,7 @@ import java.nio.file.Paths;
 
 @Configuration
     public class MvcConfig implements WebMvcConfigurer {
-//        @Override
-//        public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//            exposeDirectory("profile-images", registry);
-//        }
-//        private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {
-//            Path uploadDir = Paths.get(dirName);
-//            String uploadPath = uploadDir.toFile().getAbsolutePath();
-//            if (dirName.startsWith("../")) dirName = dirName.replace("../", "");
-//            registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
-//        }
+
         @Override
         public void addViewControllers(ViewControllerRegistry registry) {
             registry.addViewController("/login").setViewName("login");
@@ -29,9 +20,11 @@ import java.nio.file.Paths;
             registry.addViewController("/client/client-list").setViewName("client/client-list");
             registry.addViewController("/client/client-form").setViewName("client/client-form");
             registry.addViewController("/client/client-detail").setViewName("client/client-detail");
-            registry.addViewController("/product").setViewName("product/**");
+            registry.addViewController("/client/").setViewName("client/*");
+            registry.addViewController("/product/").setViewName("product/*");
             registry.addViewController("/product/product-list").setViewName("product/product-list");
             registry.addViewController("/product/product-form").setViewName("product/product-form");
+            registry.addViewController("/orderProduct/orderProduct-form").setViewName("orderProduct/orderProduct-form");
 
 
 

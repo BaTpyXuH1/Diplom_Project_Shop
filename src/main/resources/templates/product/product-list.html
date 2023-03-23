@@ -26,9 +26,11 @@
                 <tr>
                     <td><h1>[[${product.id}]]</h1></td>
                     <td>
-                        <a th:href="@{'/product/detail/' + ${product.id}}">
+                        <form th:action="@{'/basket/add' + ${product.id}}" method="post">
+                            <input th:value="${product.id}" hidden name="productId">
                             <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200">
-                        </a>
+                            <button>В корзину</button>
+                        </form>
                     </td>
                     <td>
                         <h1>[[${product.productPrice}]]$</h1>
