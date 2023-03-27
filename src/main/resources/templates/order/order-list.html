@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_list text-center" >
+<div class="wrapper_list text-center">
     <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
     <h1>Пункт выдачи товара</h1>
     [[${isAuth}]]
@@ -40,8 +40,7 @@
         </table>
         <br><br>
         <div>
-            <a th:if="${isAuth == 'ADMIN'}" th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
-            <a th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
+            <a th:if="${isAuth != 'ADMIN'}" th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернуться на главную</a></h3>

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.top.diplom_project_shop.model.entity.Client;
-import org.top.diplom_project_shop.model.repository.BasketRepository;
 import org.top.diplom_project_shop.model.repository.ClientRepository;
 
 import java.util.List;
@@ -17,8 +16,6 @@ public class DbDaoClientImpl implements IDaoClient {
     private PasswordEncoder encoder;
     @Autowired
     private ClientRepository clientRepository;
-    @Autowired
-    private BasketRepository basketRepository;
 
 
     @Override
