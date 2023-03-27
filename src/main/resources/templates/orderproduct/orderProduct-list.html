@@ -39,7 +39,7 @@
                         <a th:if="${isAdmin}" th:href="@{'/orderProduct/update/' + ${orderProduct.id}}" class="btn btn-primary">Изменить</a>
                         <a th:if="${isAdmin}" th:href="@{/templates/client/ }" class="btn btn-success">Список покупателей</a>
                         <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a>
-                        <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:if="${isAuth}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
 
                     </td>
                 </tr>
@@ -48,7 +48,7 @@
         </table>
         <br><br>
         <div>
-            <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
+            <a th:href="@{/orderProduct/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернуться на главную</a></h3>
