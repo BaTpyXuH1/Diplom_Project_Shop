@@ -35,8 +35,9 @@ public class DbDaoOrderImpl implements IDaoOrder {
     @Transactional
     public Order add(Order order) {
         Client client = clientRepository.findById(order.getClient().getId()).orElse(null);
-        if (client == null)
+        if (client == null) {
             return null;
+        }
         client.getOrderSet().add(order);
         return orderRepository.save(order);
     }
@@ -45,9 +46,11 @@ public class DbDaoOrderImpl implements IDaoOrder {
     @Transactional
     public Order update(Order order) {
         Order orderTemp = orderRepository.findById(order.getId()).orElse(null);
-        if (orderTemp != null)
-            orderTemp.setDescription(orderTemp.getDescription());
-        return orderRepository.save(order);
+        if (orderTemp == null) {
+            return null;
+        }
+        orderTemp.setDescription(order.getDescription());
+        return orderRepository.save(orderTemp);
     }
 
     @Override

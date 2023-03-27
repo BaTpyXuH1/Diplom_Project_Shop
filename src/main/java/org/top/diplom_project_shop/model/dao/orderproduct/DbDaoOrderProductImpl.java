@@ -12,8 +12,9 @@ import org.top.diplom_project_shop.model.repository.OrderRepository;
 import org.top.diplom_project_shop.model.repository.ProductRepository;
 
 import java.util.List;
+
 @Service
-public class DbDaoOrderProductImpl implements IDaoOrderProduct{
+public class DbDaoOrderProductImpl implements IDaoOrderProduct {
     @Autowired
     private OrderProductRepository orderProductRepository;
 
@@ -41,11 +42,13 @@ public class DbDaoOrderProductImpl implements IDaoOrderProduct{
     @Transactional
     public OrderProduct add(OrderProduct orderProduct) {
         Order order = orderRepository.findById(orderProduct.getOrder().getId()).orElse(null);
-        if (order == null)
+        if (order == null) {
             return null;
+        }
         Product product = productRepository.findById(orderProduct.getProduct().getId()).orElse(null);
-        if (product == null)
+        if (product == null) {
             return null;
+        }
         return orderProductRepository.save(orderProduct);
     }
 
@@ -53,9 +56,11 @@ public class DbDaoOrderProductImpl implements IDaoOrderProduct{
     @Transactional
     public OrderProduct update(OrderProduct orderProduct) {
         OrderProduct orderProductTemp = orderProductRepository.findById(orderProduct.getId()).orElse(null);
-        if (orderProductTemp != null)
-            orderProductTemp.setQuantityProduct(orderProductTemp.getQuantityProduct());
-        return orderProductRepository.save(orderProduct);
+        if (orderProductTemp == null) {
+            return null;
+        }
+        orderProductTemp.setQuantityProduct(orderProduct.getQuantityProduct());
+        return orderProductRepository.save(orderProductTemp);
     }
 
     @Override

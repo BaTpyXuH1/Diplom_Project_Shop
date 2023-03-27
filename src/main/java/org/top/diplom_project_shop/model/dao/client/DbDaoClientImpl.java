@@ -31,7 +31,6 @@ public class DbDaoClientImpl implements IDaoClient {
     }
 
 
-
     @Override
     @Transactional
     public Client add(Client client) {
@@ -48,9 +47,11 @@ public class DbDaoClientImpl implements IDaoClient {
     @Transactional
     public Client update(Client client) {
         Client clientTemp = clientRepository.findById(client.getId()).orElse(null);
-        if (clientTemp != null)
-            clientTemp.setClientName(client.getClientName());
-        return clientTemp;
+        if (clientTemp == null) {
+            return null;
+        }
+        clientTemp.setClientName(client.getClientName());
+        return clientRepository.save(clientTemp);
     }
 
 

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>orderItem-list</title>
+    <title>orderProduct-list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
@@ -13,7 +13,7 @@
             <form method="post" th:action="@{/orderProduct/update/}" th:object="${orderProduct}">
                 <input th:field="*{id}" hidden/>
                 <input th:value="*{order.id}" th:field="*{order}" hidden/>
-                <input th:value="*{orderProduct.id}" th:field="*{product}" hidden/>
+                <input th:value="*{product.id}" th:field="*{product}" hidden/>
                 <label for="quantityProduct-name">Кол-во товаров</label>
                 <input id="quantityProduct-name" th:type="number" th:field="*{quantityProduct}"/>
                 <td><img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="300"

@@ -34,10 +34,10 @@ public class ProductController {
     @GetMapping("/")
     public String listAll(Model model, Authentication auth) {
         List<Product> products = daoProduct.listAll();
-//        if (auth != null)
-//            model.addAttribute("isAuth", auth.getAuthorities().toString().contains("ADMIN"));
-//        else
-//            model.addAttribute("isAuth",false);
+        if (auth != null)
+            model.addAttribute("isAuth", auth.getAuthorities().toString().contains("ADMIN"));
+        else
+            model.addAttribute("isAuth",false);
         model.addAttribute("product", daoProduct.listAll());
         model.addAttribute("products", products);
         return "/product/product-list";

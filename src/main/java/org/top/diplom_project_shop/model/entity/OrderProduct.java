@@ -23,7 +23,18 @@ public class OrderProduct {
 
     public OrderProduct() {}
 
-    public OrderProduct(Integer quantityProduct, Product product, Order order) {
+    public OrderProduct(Integer quantityProduct, Product product) {
+        this.quantityProduct = quantityProduct;
+        this.product = product;
+    }
+
+    public OrderProduct(Integer quantityProduct, Order order) {
+        this.quantityProduct = quantityProduct;
+        this.order = order;
+    }
+
+    public OrderProduct(Integer id,Integer quantityProduct, Product product, Order order) {
+        this.id = id;
         this.quantityProduct = quantityProduct;
         this.product = product;
         this.order = order;

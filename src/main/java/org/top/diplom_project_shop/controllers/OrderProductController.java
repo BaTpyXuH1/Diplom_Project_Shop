@@ -44,7 +44,6 @@ public class OrderProductController {
         return "/orderProduct/orderProduct-list";
     }
 
-    // Получение form добавления нового заказа
     @GetMapping("/add/")
     public String getOrderProductForm(Model model) {
         OrderProduct orderProduct = new OrderProduct();
@@ -52,7 +51,7 @@ public class OrderProductController {
         List<Product> products = daoProduct.listAll();
         model.addAttribute("orderProduct", orderProduct);
         model.addAttribute("orders", orders);
-        model.addAttribute("Products", products);
+        model.addAttribute("products", products);
         return "/orderProduct/orderProduct-form";
     }
 
@@ -83,7 +82,7 @@ public class OrderProductController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detailProduct(@PathVariable("id") Integer orderProductId, Model model) {
+    public String detailOrderProduct(@PathVariable("id") Integer orderProductId, Model model) {
         OrderProduct orderProduct = daoOrderProduct.getById(orderProductId);
         model.addAttribute("orderProduct", orderProduct);
         return "/orderProduct/orderProduct-detail";

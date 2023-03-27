@@ -14,7 +14,7 @@ public class Order {
     @Column(nullable = false)
     private String description;
     @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
+    @JoinColumn(name = "client_id",nullable = false)
     private Client client;
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private Set<OrderProduct> orderProductSet;
@@ -66,11 +66,8 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", client=" + client +
-                ", orderProductSet=" + orderProductSet +
-                '}';
+        return "id=" + id +
+                ", desc : " + description + '\'' +
+                ", client" + client ;
     }
 }
