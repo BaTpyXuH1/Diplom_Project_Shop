@@ -27,11 +27,9 @@
                         <a th:href="@{'/order/detail/' + ${order.id}}" class="btn"><h1>[[${order.description}]]</h1></a>
                     </td>
                     <td>
-                        <a th:if="${isAdmin}" th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:if="${isAdmin}" th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
-                        <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
-                        <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a>
-                        <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
+                        <a th:if="${isAuth}" th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAuth}" th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
+
                     </td>
                 </tr>
             </th:block>
@@ -39,7 +37,10 @@
         </table>
         <br><br>
         <div>
-            <a th:if="${isAdmin}" th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
+            <a th:if="${isAuth}" th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a><br><br>
+            <a th:if="${isAuth}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a><br><br>
+            <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a><br><br>
+            <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернуться на главную</a></h3>

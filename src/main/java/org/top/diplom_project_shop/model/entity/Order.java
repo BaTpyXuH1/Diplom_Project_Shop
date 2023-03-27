@@ -66,11 +66,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", client=" + client +
-                ", orderProductSet=" + orderProductSet +
-                '}';
+        return " Пункт выдачи : " + description + ", Покупатель : " + client ;
     }
 }

@@ -52,7 +52,7 @@ public class OrderProductController {
         List<Product> products = daoProduct.listAll();
         model.addAttribute("orderProduct", orderProduct);
         model.addAttribute("orders", orders);
-        model.addAttribute("Products", products);
+        model.addAttribute("products", products);
         return "/orderProduct/orderProduct-form";
     }
 

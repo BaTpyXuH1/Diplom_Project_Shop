@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>orderItem-list</title>
+    <title>orderProduct-list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
@@ -35,9 +35,9 @@
                     <td><h1>[[${orderProduct.product.productPrice}]]</h1></td>
                     <td><h1>[[${orderProduct.product.productArticle}]]</h1></td>
                     <td>
-                        <a th:if="${isAdmin}" th:href="@{'/orderProduct/delete/' + ${orderProduct.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:if="${isAdmin}" th:href="@{'/orderProduct/update/' + ${orderProduct.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:if="${isAdmin}" th:href="@{/templates/client/ }" class="btn btn-success">Список покупателей</a>
+                        <a th:if="${isAuth}" th:href="@{'/orderProduct/delete/' + ${orderProduct.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAuth}" th:href="@{'/orderProduct/update/' + ${orderProduct.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAuth}" th:href="@{/client/ }" class="btn btn-success">Список покупателей</a>
                         <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a>
                         <a th:if="${isAuth}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
 

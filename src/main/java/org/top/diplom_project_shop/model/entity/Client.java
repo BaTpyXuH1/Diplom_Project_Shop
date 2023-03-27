@@ -130,6 +130,6 @@ public class Client implements UserDetails {
 
     @Override
     public String toString() {
-        return "Name : " + clientName  + ", login : " + login ;
+        return  clientName;
     }
 }

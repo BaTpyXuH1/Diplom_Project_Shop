@@ -63,11 +63,7 @@ public class OrderProduct {
 
     @Override
     public String toString() {
-        return "OrderProduct{" +
-                "id=" + id +
-                ", quantityProduct=" + quantityProduct +
-                ", product=" + product +
-                ", order=" + order +
-                '}';
+        return
+                "Кол-во товара : " + quantityProduct + " , " + product + order ;
     }
 }
