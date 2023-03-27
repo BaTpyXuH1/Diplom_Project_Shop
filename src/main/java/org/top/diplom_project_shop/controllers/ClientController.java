@@ -1,6 +1,6 @@
 package org.top.diplom_project_shop.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +35,6 @@ public class ClientController {
             client.setRole("ADMIN");
         else
             client.setRole("USER");
-        System.out.println(client);
         daoClient.add(client);
         return "/index";
     }

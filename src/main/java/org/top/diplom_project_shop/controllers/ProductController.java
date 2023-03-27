@@ -1,19 +1,16 @@
 package org.top.diplom_project_shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.top.diplom_project_shop.model.dao.order.IDaoOrder;
-import org.top.diplom_project_shop.model.dao.product.DbDaoProductImpl;
 import org.top.diplom_project_shop.model.dao.product.IDaoProduct;
 import org.top.diplom_project_shop.model.entity.Order;
 import org.top.diplom_project_shop.model.entity.Product;
-import org.top.diplom_project_shop.model.repository.ProductRepository;
+
 
 
 import java.io.IOException;
@@ -32,12 +29,8 @@ public class ProductController {
 
 
     @GetMapping("/")
-    public String listAll(Model model, Authentication auth) {
+    public String listAll(Model model) {
         List<Product> products = daoProduct.listAll();
-        if (auth != null)
-            model.addAttribute("isAuth", auth.getAuthorities().toString().contains("ADMIN"));
-        else
-            model.addAttribute("isAuth",false);
         model.addAttribute("product", daoProduct.listAll());
         model.addAttribute("products", products);
         return "/product/product-list";
@@ -59,7 +52,7 @@ public class ProductController {
                 .getEncoder()
                 .encodeToString(imageData.getBytes());
         product.setPreviewImage(imageDataAsString);
-        Product addedProduct = daoProduct.add(product);   // save(product)
+        Product addedProduct = daoProduct.add(product);
         ra.addFlashAttribute("goodMsg", "Товар " + addedProduct + " добавлен");
         return "redirect:/product/";
     }
@@ -72,7 +65,6 @@ public class ProductController {
 
     @GetMapping("/update/{id}")
     public String getUpdateProduct(@PathVariable("id") Integer productId, Model model) {
-        System.out.println("*****ID");
         Product product = daoProduct.getById(productId);
         model.addAttribute("product", product);
         return "/product/product-update";

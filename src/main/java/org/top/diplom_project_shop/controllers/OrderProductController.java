@@ -1,7 +1,6 @@
 package org.top.diplom_project_shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,17 +33,14 @@ public class OrderProductController {
 
 
     @GetMapping("/")
-    public String listAll(Model model, Authentication auth) {
+    public String listAll(Model model) {
         List<OrderProduct> orderProducts = daoOrderProduct.listAll();
-        if (auth != null)
-            model.addAttribute("isAuth", auth.getAuthorities().toString().contains("ADMIN"));
-        else
-            model.addAttribute("isAuth",false);
+
         model.addAttribute("orderProducts", orderProducts);
         return "/orderProduct/orderProduct-list";
     }
 
-    // Получение form добавления нового заказа
+
     @GetMapping("/add/")
     public String getOrderProductForm(Model model) {
         OrderProduct orderProduct = new OrderProduct();
@@ -88,6 +84,4 @@ public class OrderProductController {
         model.addAttribute("orderProduct", orderProduct);
         return "/orderProduct/orderProduct-detail";
     }
-
-
 }
