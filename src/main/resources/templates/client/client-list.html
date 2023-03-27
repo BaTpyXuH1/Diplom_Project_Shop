@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_list text-center" th:if="${isAuth == 'ADMIN'}">
+<div class="wrapper_list text-center" >
     <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
     <h1>Список покупателей</h1>
     [[${isAuth}]]

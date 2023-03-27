@@ -26,6 +26,9 @@ public class Client implements UserDetails {
     private String role;
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
     private Set<Order> orderSet ;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "basket_id")
+    private Basket basket;
 
     public Client() {}
 
@@ -44,6 +47,15 @@ public class Client implements UserDetails {
     public Client(String login, String password) {
         this.login = login;
         this.password = password;
+        this.basket = new Basket();
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
 
     public Integer getId() {
@@ -130,6 +142,6 @@ public class Client implements UserDetails {
 
     @Override
     public String toString() {
-        return "Name : " + clientName  + ", login : " + login ;
+        return "Name : " + clientName  + ", login : " + login + "basket = " + basket.getId() ;
     }
 }

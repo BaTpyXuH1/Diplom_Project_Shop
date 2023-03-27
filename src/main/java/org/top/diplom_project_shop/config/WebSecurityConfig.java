@@ -41,6 +41,12 @@ public class WebSecurityConfig {
                                 .requestMatchers( "/client/add", "/logout", "/product/add","/order/add","/client/*","/client/detail","/product/*").authenticated()
                                 .requestMatchers( "/","/webjars/**","/order/update/","/orderProduct/add/","/catalog","/product/*","/client/*").permitAll()
 
+                                .requestMatchers("/admin/*","/orderProduct/**").hasRole("ADMIN")
+                                .requestMatchers("/product","/registration", "/service/generateBase", "/client/add").anonymous()
+                                .requestMatchers( "/client/add", "/logout", "/product/add","/basket/*","/orderProduct/add/").authenticated()
+                                .requestMatchers( "/","/webjars/**","client/add").permitAll()
+
+
 
                             .requestMatchers("/client/*","/client/delete/**","/order/delete/**"
                             ).hasRole("ADMIN")

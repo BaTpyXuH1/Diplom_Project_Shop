@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_list text-center" th:if="${isAuth == 'ADMIN'}">
+<div class="wrapper_list text-center" >
     <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
     <h1>Корзина товаров</h1>
     <div>
@@ -35,12 +35,12 @@
                     <td><h1>[[${orderProduct.product.productPrice}]]</h1></td>
                     <td><h1>[[${orderProduct.product.productArticle}]]</h1></td>
                     <td>
+
                         <a th:if="${isAuth == 'ADMIN'}" th:href="@{'/orderProduct/delete/' + ${orderProduct.id}}" class="btn btn-danger">Удалить</a>
                         <a th:if="${isAuth == 'ADMIN'}" th:href="@{'/orderProduct/update/' + ${orderProduct.id}}" class="btn btn-primary">Изменить</a>
                         <a th:if="${isAuth == 'ADMIN'}" th:href="@{/client/ }" class="btn btn-success">Список покупателей</a>
                         <a th:if="${isAuth == 'ADMIN'}" th:href="@{/product/}" class="btn btn-primary">Список товаров</a>
                         <a th:if="${isAuth == 'ADMIN'}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-
                     </td>
                 </tr>
             </th:block>
@@ -49,6 +49,7 @@
         <br><br>
         <div>
             <a th:if="${isAuth == 'ADMIN'}" th:href="@{/orderProduct/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
+            <a th:href="@{/orderProduct/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернуться на главную</a></h3>
