@@ -16,6 +16,7 @@
             <tr>
                 <th>ID</th>
                 <th>Отправление</th>
+                <th>Имя клиента</th>
                 <th>Меню навигации</th>
             </tr>
             </thead>
@@ -26,6 +27,7 @@
                     <td>
                         <a th:href="@{'/order/detail/' + ${order.id}}" class="btn"><h1>[[${order.description}]]</h1></a>
                     </td>
+                    <td><h1>[[${order.client.clientName}]]</h1></td>
                     <td>
                         <a th:if="${isAuth}" th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
                         <a th:if="${isAuth}" th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
