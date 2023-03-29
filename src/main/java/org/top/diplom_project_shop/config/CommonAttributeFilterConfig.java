@@ -25,7 +25,7 @@ public class CommonAttributeFilterConfig implements Filter {
             servletRequest.setAttribute("isAuth",role);
         }
         else {
-            servletRequest.setAttribute("isAuth","anon");
+            servletRequest.setAttribute("isAuth","Пользователь");
         }
 
         filterChain.doFilter(servletRequest, servletResponse);

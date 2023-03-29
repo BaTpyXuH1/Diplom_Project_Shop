@@ -35,5 +35,9 @@ public class MainController {
             request.getSession().invalidate();
         return "redirect:/";
     }
+    @GetMapping("/basket")
+    public String basket() {
+        return "basket";
+    }
 }
 

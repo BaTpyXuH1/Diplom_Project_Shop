@@ -7,19 +7,20 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_index text-center">
-    [[${isAuth}]]
-    <h1 th:if="${isAuth != 'anon'}">Добро пожаловать [[${isAuth}]]!</h1><br><br>
-    <h1 th:if="${isAuth == 'anon'}">Добро пожаловать !</h1><br><br>
-    <h1 th:if="${isAuth == 'anon'}">Зарегистрируйтесь или аунтифицируйтесь</h1><br><br>
-    <div>
-        <h1>
-            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/client/}" class="btn btn-success">Страница адимна</a>
-            <a th:if="${isAuth == 'USER' && isAuth !='anon'}" th:href="@{/client/client-detail}" class="btn btn-primary">Страница покупателя</a>
-            <a th:if="${isAuth != 'anon'}" th:href="@{/product/}" class="btn btn-warning">Каталог</a>
-            <a th:if="${isAuth == 'anon'}" th:href="@{/login}" class="btn btn-primary">Логин/Регистрация</a>
-            <a th:if="${isAuth != 'anon'}" th:href="@{/logout}" class="btn btn-outline-dark">Выйти из аккаунта</a>
-        </h1>
+<div class="wrapper_index">
+    <div class="collapsible-menu">
+        <h1 class="text-center">Добро пожаловать [[${isAuth}]]!</h1>
+        <input type="checkbox" id="menu">
+        <label for="menu">Меню навигации</label>
+        <div class="menu-content">
+            <ul>
+                <li><a th:href="@{/client/}"><h1 style="color: blue" th:if="${isAuth == 'ADMIN'}">Страница админа</h1></a></li>
+                <li><a  th:href="@{/basket}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">Страница покупателя</h1></a></li>
+                <li><a th:href="@{/product/}" th:if="${isAuth == 'USER'}"><h1 style="color: blue">Каталог</h1></a></li>
+                <li><a th:href="@{/login}" th:if="${isAuth == 'Пользователь'}"><h1 style="color: black">Логин/Регистрация</h1></a></li>
+                <li><a th:href="@{/logout}" th:if="${isAuth == 'ADMIN' || isAuth == 'USER'}"><h1 style="color: black">Выйти из аккаунта</h1></a></li>
+            </ul>
+        </div>
     </div>
 </div>
 </body>

@@ -23,3 +23,101 @@ body {
     background-repeat: no-repeat;
     background-image: url("../images/fitness_img.jpg");
 }
+
+.menu-content {
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}
+.collapsible-menu {
+    background-image: url("../images/fitness_img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0px 30px;
+    border-bottom: 3px solid #7390de;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+.collapsible-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+.collapsible-menu a {
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.menu-content {
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}
+.collapsible-menu {
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px;
+    border-bottom: 3px solid #7390de;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+.collapsible-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+.collapsible-menu a {
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.menu-content {
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}
+.collapsible-menu {
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px;
+    border-bottom: 3px solid #7390de;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+.collapsible-menu a {
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.collapsible-menu ul{
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 30px;
+    display: block;
+    cursor: pointer;
+    background: url("../images/menu.png") no-repeat left center;
+    list-style-type: none;
+    padding: 0;
+
+
+}
+.collapsible-menu label {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 40px;
+    display: block;
+    cursor: pointer;
+    background: url("../images/menu.png") no-repeat left center;
+}
+input#menu {
+    display: none;
+}
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}
+input:checked ~ label {
+    background-image: url("../images/menu.png");
+}
+input:checked ~ .menu-content {
+    max-height: 100%;
+}
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    padding: 0 0 0 50px;
+}
+
+
+

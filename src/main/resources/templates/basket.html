@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basket</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list">
+    <div class="collapsible-menu">
+        <input type="checkbox" id="menu">
+        <label for="menu">Меню навигации</label>
+        <div class="menu-content">
+            <ul>
+                <li><a href="/client/"><h1 style="color: black">Велосипеды</h1></a></li>
+                <li><a href="/product/"><h1 style="color: black">Лыжи/Сноуборды</h1></a></li>
+                <li><a href="/order/"><h1 style="color: black">Тренажеры</h1></a></li>
+                <li><a href="/orderProduct/"><h1 style="color: black">Теннис</h1></a></li>
+                <li><a href="/orderProduct/"><h1 style="color: black">Плавание</h1></a></li>
+                <li><a href="/orderProduct/"><h1 style="color: black">Разное</h1></a></li>
+                <li><a href="/"><h1 style="color: blue">Вернуться на главную</h1></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
