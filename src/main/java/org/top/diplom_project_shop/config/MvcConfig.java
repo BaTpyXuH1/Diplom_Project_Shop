@@ -27,6 +27,7 @@ import java.nio.file.Paths;
             registry.addViewController("/registration").setViewName("registration");
             registry.addViewController("/").setViewName("index");
             registry.addViewController("/client").setViewName("client/*");
+            registry.addViewController("/goods").setViewName("goods/**");
             registry.addViewController("/client/client-list").setViewName("client/client-list");
             registry.addViewController("/client/client-form").setViewName("client/client-form");
             registry.addViewController("/client/client-detail").setViewName("client/client-detail");

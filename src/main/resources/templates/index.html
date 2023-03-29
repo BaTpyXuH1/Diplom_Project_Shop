@@ -15,10 +15,10 @@
         <div class="menu-content">
             <ul>
                 <li><a th:href="@{/client/}"><h1 style="color: blue" th:if="${isAuth == 'ADMIN'}">Страница админа</h1></a></li>
-                <li><a  th:href="@{/basket}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">Страница покупателя</h1></a></li>
-                <li><a th:href="@{/product/}" th:if="${isAuth == 'USER'}"><h1 style="color: blue">Каталог</h1></a></li>
+                <li><a  th:href="@{/catalog}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">Каталог</h1></a></li>
+                <li><a th:href="@{/product/}" th:if="${isAuth == 'USER'}"><h1 style="color: red">Корзина товаров</h1></a></li>
                 <li><a th:href="@{/login}" th:if="${isAuth == 'Пользователь'}"><h1 style="color: black">Логин/Регистрация</h1></a></li>
-                <li><a th:href="@{/logout}" th:if="${isAuth == 'ADMIN' || isAuth == 'USER'}"><h1 style="color: black">Выйти из аккаунта</h1></a></li>
+                <li><a th:href="@{/logout}" th:if="${isAuth != 'Пользователь'}"><h1 style="color: black">Выйти из аккаунта</h1></a></li>
             </ul>
         </div>
     </div>

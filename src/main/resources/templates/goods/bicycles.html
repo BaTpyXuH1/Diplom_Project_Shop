@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>bicycles</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Велосипеды</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Товар</th>
+                <th>Цена $</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="product: ${products}">
+                <tr>
+                    <td><h1>[[${product.id}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/product/detail/' + ${product.id}}">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300"
+                                 height="200">
+                        </a>
+                    </td>
+                    <td>
+                        <h1>[[${product.productPrice}]]$</h1>
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+        [[${goodMsg}]]
+    </div>
+</div>
+</body>
+</html>

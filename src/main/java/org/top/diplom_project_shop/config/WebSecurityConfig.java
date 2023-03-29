@@ -35,10 +35,10 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
 
-                                .requestMatchers("/admin/*","/client/add").hasRole("ADMIN") //если стоит у админа ,то юзер не видит "/orderProduct/*",
+                                .requestMatchers("/admin/*").hasRole("ADMIN") //если стоит у админа ,то юзер не видит "/orderProduct/*",
                                 .requestMatchers("/product","/registration", "/service/generateBase","/product","/client/add").anonymous()
-                                .requestMatchers( "/client/add", "/logout", "/product/add","/basket").authenticated()
-                                .requestMatchers( "/","/webjars/**","/product").permitAll()
+                                .requestMatchers( "/client/add", "/logout", "/product/add","/catalog/*","/goods/*","/client/add").authenticated()
+                                .requestMatchers( "/","/webjars/**","/product","/goods/**","/client/add").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

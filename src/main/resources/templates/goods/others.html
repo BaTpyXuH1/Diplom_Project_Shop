@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>others</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Разное</h1></div>
+<div>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Товар</th>
+            <th>Цена $</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="product: ${products}">
+        <td>
+                <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300"
+                     height="200">
+        </td>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>
