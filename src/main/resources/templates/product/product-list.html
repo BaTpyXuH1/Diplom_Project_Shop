@@ -16,7 +16,7 @@
                 <th>ID</th>
                 <th>Товар</th>
                 <th>Цена $</th>
-                <th>Меню навигации</th>
+                <th th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" >Меню навигации</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                     <td>
                         <h1>[[${product.productPrice}]]$</h1>
                     </td>
-                    <td>
+                    <td th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">
                         <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{'/product/delete/' + ${product.id}}" class="btn btn-danger">Удалить</a>
                         <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{'/product/update/' + ${product.id}}" class="btn btn-warning">Изменить</a>
                     </td>
