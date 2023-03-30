@@ -16,6 +16,8 @@ public interface IDaoProduct {
     Product add(Product product);
     @Transactional
     Product upPrice(Product product);
+    @Transactional
+    Product upTitle(Product product);
 
     @Transactional
     Product update(Product product);

@@ -28,32 +28,32 @@ public class GoodsController {
         model.addAttribute("products",products);
         return "/goods/bicycles";
     }
-//    @PostMapping("/bicycles")
-//    public String bicycles(Product product, @RequestParam("previewImageData") MultipartFile imageData,
-//                           RedirectAttributes ra) throws IOException {
-//        String imageDataAsString = Base64
-//                .getEncoder()
-//                .encodeToString(imageData.getBytes());
-//        product.setPreviewImage(imageDataAsString);
-//        Product addedProduct = daoProduct.add(product);
-//        ra.addFlashAttribute("goodMsg", "Товар " + addedProduct + " добавлен");
-//        return "/goods/bicycles";
-//    }
+
     @GetMapping("/others")
-    public String others() {
+    public String others(Model model) {
+        List<Product> products = daoProduct.listAll();
+        model.addAttribute("products",products);
         return "/goods/others";
     }@GetMapping("/simulators")
-    public String simulators() {
+    public String simulators(Model model) {
+        List<Product> products = daoProduct.listAll();
+        model.addAttribute("products",products);
         return "/goods/simulators";
     }@GetMapping("/snowboards")
-    public String snowboards() {
+    public String snowboards(Model model) {
+        List<Product> products = daoProduct.listAll();
+        model.addAttribute("products",products);
         return "/goods/snowboards";
     }@GetMapping("/swimming")
-    public String swimming() {
+    public String swimming(Model model) {
+        List<Product> products = daoProduct.listAll();
+        model.addAttribute("products",products);
         return "/goods/swimming";
     }
     @GetMapping("/tennis")
-    public String tennis() {
+    public String tennis(Model model) {
+        List<Product> products = daoProduct.listAll();
+        model.addAttribute("products",products);
         return "/goods/tennis";
     }
 }

@@ -12,6 +12,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
+    private String productTitle;
+    @Column
     private String productName;
     @Column
     private Integer productArticle;
@@ -32,6 +34,13 @@ public class Product {
         productPrice = (int)(Math.random()*1000);
     }
 
+    public Product(Integer id, String productTitle, String productName, String previewImage) {
+        this.id = id;
+        this.productTitle = productTitle;
+        this.productName = productName;
+        this.previewImage = previewImage;
+    }
+
     public Product(String productName, String previewImage) {
         this.productName = productName;
         this.previewImage = previewImage;
@@ -50,6 +59,14 @@ public class Product {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getProductTitle() {
+        return productTitle;
+    }
+
+    public void setProductTitle(String productTitle) {
+        this.productTitle = productTitle;
     }
 
     public String getProductName() {
