@@ -25,7 +25,7 @@ public class Client implements UserDetails {
     @Column
     private String role;
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
-    private Set<Order> orderSet ;
+    private Set<Order> orderSet = new HashSet<>();
 
     public Client() {}
 

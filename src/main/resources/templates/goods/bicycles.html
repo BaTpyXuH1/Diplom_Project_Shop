@@ -20,7 +20,7 @@
             </thead>
             <tbody>
             <th:block th:each="product: ${products}">
-                <tr>
+                <tr th:if="${product.productName =='Велосипед'}" >
                     <td><h1>[[${product.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/product/detail/' + ${product.id}}">

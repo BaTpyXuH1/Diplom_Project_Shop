@@ -10,6 +10,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "isPaid",nullable = false)
+    private boolean isPaid = false;
 
     @Column(nullable = false)
     private String description;
@@ -19,7 +21,9 @@ public class Order {
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private Set<OrderProduct> orderProductSet;
 
-    public Order() {}
+    public Order() {
+        this.description = "";
+    }
 
     public Order(String description, Client client) {
         this.description = description;
@@ -30,6 +34,14 @@ public class Order {
         this.description = description;
         this.client = client;
         this.orderProductSet = new HashSet<>();
+    }
+
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
     }
 
     public Integer getId() {

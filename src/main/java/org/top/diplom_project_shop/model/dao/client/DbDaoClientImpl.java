@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.top.diplom_project_shop.model.entity.Client;
+import org.top.diplom_project_shop.model.entity.Order;
 import org.top.diplom_project_shop.model.repository.ClientRepository;
+import org.top.diplom_project_shop.model.repository.OrderRepository;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class DbDaoClientImpl implements IDaoClient {
     private PasswordEncoder encoder;
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
 
     @Override
@@ -31,7 +35,6 @@ public class DbDaoClientImpl implements IDaoClient {
     }
 
 
-
     @Override
     @Transactional
     public Client add(Client client) {
@@ -40,6 +43,11 @@ public class DbDaoClientImpl implements IDaoClient {
             client.setRole("ADMIN");
         else
             client.setRole("USER");
+        client = clientRepository.save(client);
+        Order order = new Order();
+        order.setClient(client);
+        order = orderRepository.save(order);
+        client.getOrderSet().add(order);
         return clientRepository.save(client);
     }
 
@@ -67,5 +75,14 @@ public class DbDaoClientImpl implements IDaoClient {
     @Transactional
     public Client getClientByLogin(String login) {
         return clientRepository.findByLogin(login);
+    }
+
+    @Override
+    public Order getBasket(Integer id) {
+        Client client = clientRepository.findById(id).get();
+        for (Order order : client.getOrderSet())
+            if (!order.isPaid())
+                return order;
+        return null;
     }
 }

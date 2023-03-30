@@ -2,6 +2,7 @@ package org.top.diplom_project_shop.model.dao.client;
 
 import jakarta.transaction.Transactional;
 import org.top.diplom_project_shop.model.entity.Client;
+import org.top.diplom_project_shop.model.entity.Order;
 
 import java.util.List;
 
@@ -21,5 +22,7 @@ public interface IDaoClient  {
     Client delete(Integer id);
     @Transactional
     Client getClientByLogin(String login);
+
+    Order getBasket(Integer id);
 
 }
