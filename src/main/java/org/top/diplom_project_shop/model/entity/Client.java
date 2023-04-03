@@ -127,9 +127,16 @@ public class Client implements UserDetails {
     public void setRole(String role) {
         this.role = role;
     }
+    public Order getBasket(){
+        for (Order order : this.orderSet)
+            if (!order.isPaid())
+                return order;
+        return null;
+    }
 
     @Override
     public String toString() {
         return  clientName;
     }
+
 }
