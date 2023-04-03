@@ -79,23 +79,13 @@ body {
     padding: 10px;
     text-decoration: none;
 }
-.collapsible-menu ul{
-    font-family: 'Sedgwick Ave Display', cursive;
-    font-size: 30px;
-    display: block;
-    cursor: pointer;
-    background: url("../images/menu.png") no-repeat left center;
-    list-style-type: none;
-    padding: 0;
 
-
-}
 .collapsible-menu label {
     font-family: 'Sedgwick Ave Display', cursive;
-    font-size: 40px;
+    font-size: 70px;
     display: block;
     cursor: pointer;
-    background: url("../images/menu.png") no-repeat left center;
+    background: url("../images/menu.png") no-repeat left ;
 }
 input#menu {
     display: none;
