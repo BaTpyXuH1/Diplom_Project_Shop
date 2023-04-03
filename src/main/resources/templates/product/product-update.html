@@ -14,6 +14,9 @@
             <input th:field="*{id}" hidden/>
             <td><img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300" height="200"></td>
             <br><br>
+            <label for="product-title"><h2>Категория товара:</h2></label>
+            <input id="product-title" th:type="text" th:field="*{productTitle}" required minlength="1" maxlength="255">
+            <br>
             <label for="product-name"><h2>Название товара:</h2></label>
             <input id="product-name" th:type="text" th:field="*{productName}" required minlength="1"
                    maxlength="255"/><br>

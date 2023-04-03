@@ -31,11 +31,10 @@ public class OrderProductController {
     private DbDaoProductImpl daoProduct;
 
 
-
     @GetMapping("/")
     public String listAll(Model model) {
         List<OrderProduct> orderProducts = daoOrderProduct.listAll();
-
+        model.addAttribute("orderProduct", daoOrderProduct.listAll());
         model.addAttribute("orderProducts", orderProducts);
         return "/orderProduct/orderProduct-list";
     }
@@ -62,7 +61,7 @@ public class OrderProductController {
     @GetMapping("/delete/{id}")
     public String deleteOrderProduct(@PathVariable("id") Integer orderProductId) {
         daoOrderProduct.delete(orderProductId);
-        return "redirect:/orderProduct/";
+        return "redirect:/basket";
     }
 
     @GetMapping("/update/{id}")
@@ -75,7 +74,7 @@ public class OrderProductController {
     @PostMapping("/update/")
     public String updateOrderProduct(OrderProduct orderProduct) {
         daoOrderProduct.update(orderProduct);
-        return "redirect:/orderProduct/";
+        return "redirect:/basket";
     }
 
     @GetMapping("/detail/{id}")

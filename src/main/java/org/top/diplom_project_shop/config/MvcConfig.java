@@ -38,6 +38,7 @@ import java.nio.file.Paths;
             registry.addViewController("/product/product-detail").setViewName("product/product-detail");
             registry.addViewController("/product/product-update").setViewName("product/product-update");
             registry.addViewController("/order").setViewName("order/*");
+            registry.addViewController("/basket").setViewName("basket");
             registry.addViewController("/order/order-update").setViewName("order/order-update");
             registry.addViewController("/order/order-detail").setViewName("order/order-detail");
             registry.addViewController("/order/order-list").setViewName("order/order-list");
@@ -47,6 +48,8 @@ import java.nio.file.Paths;
             registry.addViewController("/orderProduct/orderProduct-detail").setViewName("orderProduct/orderProduct-detail");
             registry.addViewController("/orderProduct/orderProduct-form").setViewName("orderProduct/orderProduct-form");
             registry.addViewController("/orderProduct/orderProduct-update").setViewName("orderProduct/orderProduct-update");
+            registry.addViewController("/goods/bicycles-detail").setViewName("goods/bicycles-detail");
+            registry.addViewController("/goods/others-detail").setViewName("goods/others-detail");
 
 
 

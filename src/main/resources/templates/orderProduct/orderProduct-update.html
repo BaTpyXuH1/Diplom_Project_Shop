@@ -18,8 +18,8 @@
                 <input id="quantityProduct-name" th:type="number" th:field="*{quantityProduct}"/>
                 <td><img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="300"
                          height="200"></td>
-                <button class="btn btn-danger">Сохранить</button>
-                <a th:href="@{/orderProduct/}" class="btn btn-dark">Назад</a>
+                <button class="btn btn-primary">Сохранить</button>
+                <a th:href="@{/basket}" class="btn btn-dark">Назад</a>
             </form>
         </div>
     </div>

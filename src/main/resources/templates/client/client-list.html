@@ -20,10 +20,10 @@
             </tr>
             </thead>
             <th:block th:each="client: ${clients}" >
-                <tr>
+                <tr  th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">
                     <td><h1>[[${client.id}]]</h1></td>
                     <td>
-                        <a  th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1>
+                        <a th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1>
                         </a>
                     </td>
                     <td>

@@ -1,6 +1,7 @@
 package org.top.diplom_project_shop.model.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,15 +24,14 @@ public class Product {
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String previewImage;
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<OrderProduct> orderProductSet = new HashSet<>();
-
 
 
     public Product() {
         id = -1;
-        productArticle = (int)(Math.random()*100000);
-        productPrice = (int)(Math.random()*1000);
+        productArticle = (int) (Math.random() * 100000);
+        productPrice = (int) (Math.random() * 1000);
     }
 
     public Product(Integer id, String productTitle, String productName, String previewImage) {
@@ -112,7 +112,9 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Название товара : " + productName + " , " + "Артикул : " + productArticle +
-                " , " + "Цена : " + productPrice + "$";
+        return "Категория товара : " + productTitle + " , " +
+                "Название товара : " + productName + " , " +
+                "Артикул : " + productArticle + " , " +
+                "Цена : " + productPrice + "$";
     }
 }

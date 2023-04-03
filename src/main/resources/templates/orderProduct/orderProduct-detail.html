@@ -13,7 +13,8 @@
         <h2>[[${orderProduct}]]</h2><br><br>
         <td><img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="500" height="400">
         </td>
-        <a th:href="@{/orderProduct/}" class="btn btn-dark"><h1>Назад</h1></a>
+        <a th:href="@{'/orderProduct/delete/' + ${orderProduct.id}}" class="btn btn-danger"><h1>Удалить</h1></a>
+        <a th:href="@{/basket}" class="btn btn-dark"><h1>Назад</h1></a>
     </div>
 </div>
 </body>

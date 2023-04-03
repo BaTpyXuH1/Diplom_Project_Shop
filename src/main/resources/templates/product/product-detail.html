@@ -12,7 +12,6 @@
     <div>
         <h2>[[${product}]]</h2><br><br>
         <td><img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="1000" height="800"></td>
-        <a th:href="@{/product/}" class="btn btn-danger"><h1>Добавить в корзину</h1></a>
         <a th:href="@{/catalog}" class="btn btn-dark"><h1>Назад</h1></a>
     </div>
 </div>

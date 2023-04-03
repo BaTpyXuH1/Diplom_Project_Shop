@@ -26,19 +26,21 @@
                     <td><h1>[[${product.id}]]</h1></td>
 
                     <td>
-                        <a th:href="@{'/product/detail/' + ${product.id}}">
+                        <a th:href="@{'/goods/detail/' + ${product.id}}">
                             <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300"
                                  height="200">
                         </a>
                     </td>
-<!--                    <td><a  th:href="@{'/cart/addProduct/' + ${product.id}}">[[${product.productPrice}]]$</a></td>-->
+                    <td>
+                        <h1>[[${product.productPrice}]]$</h1>
+                        <a th:href="@{'/cart/addProduct/' + ${product.id}}"
+                           class="btn btn-danger"><h2>В корзину</h2></a></td>
                     <td><h1>[[${product.productName}]]</h1></td>
                     <td><h1>[[${product.productArticle}]]</h1></td>
                 </tr>
             </th:block>
         </table>
         <h1><a th:href="@{/}">Вернутся на главную</a></h1>
-        [[${goodMsg}]]
     </div>
 </div>
 </body>

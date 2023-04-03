@@ -72,6 +72,7 @@ public class ProductController {
 
     @PostMapping("/update/")
     public String updateProduct(Product product) {
+        daoProduct.upTitle(product);
         daoProduct.upPrice(product);
         daoProduct.update(product);
         return "redirect:/product/";
