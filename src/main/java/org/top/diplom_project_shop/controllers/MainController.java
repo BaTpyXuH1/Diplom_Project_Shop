@@ -28,6 +28,10 @@ public class MainController {
     public String index() {
         return "index";
     }
+    @GetMapping("/isPaid")
+    public String isPaid() {
+        return "isPaid";
+    }
 
     @GetMapping("/registration")
     public String index(Model model) {
