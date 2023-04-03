@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basket</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+    <h1>Корзина товаров</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Количество товаров</th>
+                <th>Название товара</th>
+                <th>Товар</th>
+                <th>Цена $</th>
+                <th>Артикул</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="orderProduct :${orderProducts}">
+                <tr>
+                    <td>
+                        <h1>[[${orderProduct.quantityProduct}]]</h1>
+                        <a th:href="@{'/orderProduct/update/' + ${orderProduct.id}}"
+                           class="btn btn-primary"><h2>Кол-во</h2></a>
+                    </td>
+                    <td><h1>[[${orderProduct.product.productName}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/orderProduct/detail/' + ${orderProduct.id}}">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}"
+                                 width="300" height="200">
+                        </a>
+                    </td>
+                    <td><h1>[[${orderProduct.product.productPrice}]]</h1></td>
+                    <td><h1>[[${orderProduct.product.productArticle}]]</h1></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <h1><a th:href="@{/}">Вернуться на главную</a></h1>
+        [[${goodMsg}]]
+    </div>
+</div>
+</body>
+</html>

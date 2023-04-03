@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bicycles-detail</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="wrapper_list text-center">
+  <h1>Описание товара</h1><br><br>
+  <div>
+    <h2>[[${product}]]</h2><br><br>
+    <td><img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="1000" height="800"></td>
+    <a th:href="@{/goods/bicycles}" class="btn btn-dark"><h1>Назад</h1></a>
+  </div>
+</div>
+</body>
+</html>
