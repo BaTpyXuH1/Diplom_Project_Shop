@@ -21,7 +21,7 @@
             </thead>
             <tbody>
             <th:block th:each="order :${orders} ">
-                <tr>
+                <tr  th:if="${isAuth != 'ADMIN' && isAuth !='anon'}">
                     <td><h1>[[${order.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/order/detail/' + ${order.id}}" class="btn"><h1>[[${order.description}]]</h1></a>
@@ -38,7 +38,6 @@
         </table>
         <br><br>
         <div>
-            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a><br><br>
             <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a><br><br>
             <a th:href="@{/product/}" class="btn btn-primary">Список товаров</a><br><br>
             <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>

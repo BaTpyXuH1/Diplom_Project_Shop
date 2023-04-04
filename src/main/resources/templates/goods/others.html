@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>others</title>
@@ -25,7 +25,7 @@
                 <tr th:if="${product.productTitle =='others'}">
                     <td><h1>[[${product.id}]]</h1></td>
                     <td>
-                        <a th:href="@{'/goods/detail/' + ${product.id}}">
+                        <a th:href="@{'/product/detail/' + ${product.id}}">
                             <img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="300"
                                  height="200">
                         </a>

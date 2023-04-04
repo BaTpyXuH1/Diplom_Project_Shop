@@ -8,7 +8,6 @@
 </head>
 <body>
 <div class="wrapper_list text-center">
-    <a th:href="@{/}" class="btn btn-primary"><h1>Вернутся на главную</h1></a>
     <h1 th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">Список товаров</h1>
     <div th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">
         <table class="table table-bordered">
@@ -22,7 +21,7 @@
             </thead>
             <tbody>
             <th:block th:each="product: ${products}">
-                <tr>
+                <tr  th:if="${isAuth != 'ADMIN' && isAuth !='anon'}">
                     <td><h1>[[${product.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/product/detail/' + ${product.id}}">

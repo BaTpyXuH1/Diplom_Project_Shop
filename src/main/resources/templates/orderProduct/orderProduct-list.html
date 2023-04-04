@@ -23,7 +23,7 @@
             </thead>
             <tbody>
             <th:block th:each="orderProduct :${orderProducts}">
-                <tr>
+                <tr  th:if="${isAuth != 'ADMIN' && isAuth !='anon'}">
                     <td><h1>[[${orderProduct.quantityProduct}]]</h1></td>
                     <td><h1>[[${orderProduct.product.productName}]]</h1></td>
                     <td>

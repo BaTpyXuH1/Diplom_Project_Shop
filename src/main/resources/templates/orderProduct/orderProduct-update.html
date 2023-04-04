@@ -14,7 +14,7 @@
                 <input th:field="*{id}" hidden/>
                 <input th:value="*{order.id}" th:field="*{order}" hidden/>
                 <input th:value="*{product.id}" th:field="*{product}" hidden/>
-                <label for="quantityProduct-name">Кол-во товаров</label>
+                <label for="quantityProduct-name">Количество товаров</label>
                 <input id="quantityProduct-name" th:type="number" th:field="*{quantityProduct}"/>
                 <td><img th:src="@{'data:image/jpeg;base64,' + ${orderProduct.product.previewImage}}" width="300"
                          height="200"></td>

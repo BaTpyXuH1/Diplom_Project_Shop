@@ -21,6 +21,10 @@ public class Order {
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private Set<OrderProduct> orderProductSet;
 
+    public void pay(){
+        this.isPaid = true;
+    }
+
     public Order() {
         this.description = "";
     }
@@ -28,13 +32,10 @@ public class Order {
     public Order(String description, Client client) {
         this.description = description;
         this.client = client;
-    }
-
-    public Order(String description, Client client, Set<OrderProduct> orderProductSet) {
-        this.description = description;
-        this.client = client;
         this.orderProductSet = new HashSet<>();
     }
+
+
 
     public boolean isPaid() {
         return isPaid;

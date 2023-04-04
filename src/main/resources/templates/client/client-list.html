@@ -20,7 +20,7 @@
             </tr>
             </thead>
             <th:block th:each="client: ${clients}" >
-                <tr  th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">
+                <tr  th:if="${isAuth != 'ADMIN' && isAuth !='anon'}">
                     <td><h1>[[${client.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1>
@@ -40,7 +40,8 @@
             <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a><br><br>
             <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
         </div>
-        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+        <br>
+        <h1><a th:href="@{/}">Вернутся на главную</a></h1>
         [[${goodMsg}]]
     </div>
 </div>
