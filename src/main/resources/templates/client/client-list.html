@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_list text-center">
+<a th:href="@{/}" th:if="${isAuth == 'USER' && isAuth !='anon'}" ><h1>Вернуться на главную</h1></a>
+<div th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" class="wrapper_list text-center">
     <h1>Список покупателей</h1>
     [[${isAuth}]]
     <div>
@@ -19,26 +20,25 @@
                 <th>Меню навигации</th>
             </tr>
             </thead>
-            <th:block th:each="client: ${clients}" >
-                <tr  th:if="${isAuth != 'ADMIN' && isAuth !='anon'}">
+            <th:block th:each="client: ${clients}">
+                <tr>
                     <td><h1>[[${client.id}]]</h1></td>
+                    <td><h1>[[${client.clientName}]]</h1></td>
                     <td>
-                        <a th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1>
-                        </a>
-                    </td>
-                    <td>
-                        <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{'/client/update/' + ${client.id}}" class="btn btn-warning">Изменить</a>
-
+                        <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{'/client/delete/' + ${client.id}}"
+                           class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{'/client/update/' + ${client.id}}"
+                           class="btn btn-warning">Изменить</a>
                     </td>
                 </tr>
             </th:block>
         </table>
         <br><br>
         <div>
-            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/product/}" class="btn btn-primary">Список товаров</a><br><br>
-            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a><br><br>
-            <a th:href="@{/orderProduct/}" class="btn btn-danger">Корзина товаров</a>
+            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/product/}" class="btn btn-primary">Список
+                товаров</a><br><br>
+            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/order/}" class="btn btn-warning">Заказ</a><br><br>
+            <a th:href="@{/orderProduct/}" class="btn btn-danger">Заказ товаров</a>
         </div>
         <br>
         <h1><a th:href="@{/}">Вернутся на главную</a></h1>

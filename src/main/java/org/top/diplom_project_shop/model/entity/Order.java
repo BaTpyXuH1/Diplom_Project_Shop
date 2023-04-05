@@ -79,6 +79,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return " Пункт выдачи : " + description + ", Покупатель : " + client ;
+        return  "Покупатель : " + client ;
     }
 }

@@ -45,14 +45,6 @@ public class ClientController {
         model.addAttribute("clients",clients);
         return "/client/client-list";
     }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!
-    @GetMapping("/client")
-    public String listIndex(Model model) {
-        List<Client> clients = daoClient.listAll();
-        model.addAttribute("clients",clients);
-        return "/client/client-index";
-    }
-
 
     @GetMapping("/add/")
     public String getAddForm(Model model){

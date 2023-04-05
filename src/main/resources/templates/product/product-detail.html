@@ -13,8 +13,9 @@
         <h2>[[${product}]]</h2><br><br>
         <td><img th:src="@{'data:image/jpeg;base64,' + ${product.previewImage}}" width="1000" height="800"></td>
         <br><br>
-        <a th:href="@{'/cart/addProduct/' + ${product.id}}" class="btn btn-danger"><h1>В корзину</h1></a><br><br>
-        <a th:href="@{/catalog}" class="btn btn-dark"><h1>Перейти в каталог</h1></a>
+        <a th:if="${isAuth != 'ADMIN' && isAuth !='anon'}" th:href="@{'/cart/addProduct/' + ${product.id}}" class="btn btn-danger"><h1>В корзину</h1></a><br><br>
+        <a th:if="${isAuth != 'ADMIN' && isAuth !='anon'}" th:href="@{/catalog}" class="btn btn-dark"><h1>Перейти в каталог</h1></a>
+        <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/product/}" class="btn btn-dark"><h1>Назад</h1></a>
     </div>
 </div>
 </body>

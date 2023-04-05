@@ -9,10 +9,10 @@
 <body>
 <div class="wrapper_list text-center">
     <h1>Изменить покупателя</h1>
-    <div>
+    <div><br><br><br><br>
         <form method="post" th:action="@{/client/update/}" th:object="${client}">
             <input th:field="*{id}" hidden/>
-            <label for="client-name" style="color: white">Имя покупателя:</label>
+            <label for="client-name"><h3>Имя покупателя:</h3></label>
             <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255"/>
             <button class="btn btn-warning">Сохранить</button>
             <a th:href="@{/client/}" class="btn btn-dark">Назад</a>

@@ -11,9 +11,9 @@
     <h1>Корзина товаров</h1><br>
     <form method="get" action="/isPaid">
         <input  type="text" th:value="${orderId}" name="orderId" hidden="hidden" >
-        <button>Оплатить заказ</button>
+        <button class="btn btn-danger"><h1>Оплатить заказ</h1></button>
     </form>
-<!--    <a th:href="@{isPaid}" class="btn btn-danger"><h1>Оплатить заказ</h1></a><br><br>-->
+    <br>
     <div>
         <table class="table table-bordered">
             <thead class="table-dark">

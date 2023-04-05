@@ -9,7 +9,7 @@ import org.top.diplom_project_shop.model.dao.client.IDaoClient;
 import org.top.diplom_project_shop.model.entity.Client;
 
 
-// Наш сервис данных о пользователей
+
 @Service
 public class DbUserDetailsService implements UserDetailsService {
 
