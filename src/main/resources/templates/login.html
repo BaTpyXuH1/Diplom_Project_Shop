@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_login text-center">
-    <form th:action="@{/login}" method="post">
+<div class="wrapper_index text-center">
+    <form th:action="@{/login}" method="post"><br><br><br><br>
         <h1>Авторизация</h1>
         <label>
             Логин :
@@ -22,8 +22,8 @@
         <th:block th:if="${param.error}" class="alert">
             Ошибка ввода данных...
         </th:block>
-        <button class="btn btn-warning" > Войти</button><br><br>
-        <a th:href="@{/registration}" class="btn btn-primary">Регистрация</a>
+        <button class="btn btn-warning">Войти</button><br><br>
+        <a th:href="@{/registration}" class="btn btn-primary"><h3>Регистрация</h3></a>
     </form>
 </div>
 </body>

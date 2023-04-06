@@ -18,7 +18,7 @@
                 </a></li>
                 <li><a th:href="@{/catalog}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">
                     Каталог</h1></a></li>
-                <li><a th:href="@{/basket}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">
+                <li><a th:href="@{/basket}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: red">
                     Карзина товаров</h1></a></li>
                 <li><a th:href="@{/login}" th:if="${isAuth == 'anon'}"><h1 style="color: black">Логин/Регистрация</h1>
                 </a></li>

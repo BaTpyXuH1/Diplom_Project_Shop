@@ -7,8 +7,9 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_login text-center">
+<div class="wrapper_index text-center">
   <form th:action="@{/client/add}"  method="post">
+    <br><br><br><br>
     <h1>Регистрация</h1>
     <label>
       Логин :
@@ -27,7 +28,8 @@
     </th:block>
     <button class="btn btn-warning">Регистрация</button>
   </form>
-  <a th:href="@{/logout}" class="btn btn-outline-dark">Назад</a>
+  <br>
+  <a th:href="@{/logout}" class="btn btn-outline-dark"><h3>Назад</h3></a>
 </div>
 </body>
 </html>

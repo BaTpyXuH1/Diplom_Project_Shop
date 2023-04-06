@@ -47,8 +47,9 @@
             <button class="btn btn-danger"><h1>Оплатить </h1></button>
         </form>
         <br>
+        <h3 class="city1">Город получения : </h3>
         <div class="city" th:each="order :${order}">
-            <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning"><h1>[[${order.description}]]</h1></a>
+            <a th:href="@{'/order/update/' + ${order.id}}"><h1>[[${order.description}]]</h1></a>
         </div><br>
         <h1><a th:href="@{/}">Вернуться на главную</a></h1>
         [[${goodMsg}]]

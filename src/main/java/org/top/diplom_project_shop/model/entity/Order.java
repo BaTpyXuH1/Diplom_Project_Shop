@@ -26,7 +26,7 @@ public class Order {
     }
 
     public Order() {
-        this.description = "";
+        this.description = "Москва";
     }
 
     public Order(String description, Client client) {
@@ -62,7 +62,7 @@ public class Order {
     }
 
     public String getDescription() {
-        return description;
+        return description ;
     }
 
     public void setDescription(String description) {

@@ -36,7 +36,7 @@ public class MainController {
     public String isPaid(@RequestParam Integer orderId,Authentication auth) {
        Order order = daoOrder.getById(orderId);
        order.pay();
-       Order orderPay = new Order("",daoClient.getClientByLogin(auth.getName()));
+       Order orderPay = new Order(order.getDescription(),daoClient.getClientByLogin(auth.getName()));
        orderPay = daoOrder.add(orderPay);
         return "isPaid";
     }

@@ -9,8 +9,14 @@ body {
 }
 .city{
     position:absolute;
-    top:10px;
-    left:125px;
+    top:20px;
+    left:350px;
+}
+.city1{
+    position:absolute;
+    top:30px;
+    left:100px;
+
 }
 .pay{
     position:absolute;
