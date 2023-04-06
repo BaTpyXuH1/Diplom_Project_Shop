@@ -65,7 +65,7 @@ public class OrderController {
     @PostMapping("/update/")
     public String updatedOrder(Order order) {
         daoOrder.update(order);
-        return "redirect:/order/";
+        return "redirect:/basket";
     }
 
     @GetMapping("/detail/{id}")

@@ -35,6 +35,14 @@ public class Order {
         this.orderProductSet = new HashSet<>();
     }
 
+    public int finalPrice(){
+       int price = 0;
+       for (OrderProduct op : orderProductSet){
+           price += op.getQuantityProduct()*op.getProduct().getProductPrice();
+       }
+       return price;
+    }
+
 
 
     public boolean isPaid() {

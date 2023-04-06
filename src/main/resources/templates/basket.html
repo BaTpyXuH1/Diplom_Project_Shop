@@ -8,12 +8,7 @@
 </head>
 <body>
 <div class="wrapper_list text-center">
-    <h1>Корзина товаров</h1><br>
-    <form method="get" action="/isPaid">
-        <input  type="text" th:value="${orderId}" name="orderId" hidden="hidden" >
-        <button class="btn btn-danger"><h1>Оплатить заказ</h1></button>
-    </form>
-    <br>
+    <h1>Корзина товаров</h1><br><br>
     <div>
         <table class="table table-bordered">
             <thead class="table-dark">
@@ -26,7 +21,7 @@
             </tr>
             </thead>
             <tbody>
-            <th:block th:each="orderProduct :${orderProducts}">
+            <th:block th:each="orderProduct :${order.orderProductSet}" >
                 <tr>
                     <td>
                         <h1>[[${orderProduct.quantityProduct}]]</h1>
@@ -46,6 +41,15 @@
             </th:block>
             </tbody>
         </table>
+        <h1 class="price">Итого  :  [[${order.finalPrice()}]] $ </h1>
+        <form class="pay" method="get" action="/isPaid">
+            <input type="text" th:value="${order.id}" name="orderId" hidden="hidden">
+            <button class="btn btn-danger"><h1>Оплатить </h1></button>
+        </form>
+        <br>
+        <div class="city" th:each="order :${order}">
+            <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning"><h1>[[${order.description}]]</h1></a>
+        </div><br>
         <h1><a th:href="@{/}">Вернуться на главную</a></h1>
         [[${goodMsg}]]
     </div>

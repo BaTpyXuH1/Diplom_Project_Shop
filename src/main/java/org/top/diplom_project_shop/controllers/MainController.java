@@ -61,8 +61,10 @@ public class MainController {
         Client client = daoClient.getClientByLogin(auth.getName());
         for(Order pay : client.getOrderSet()){
             if(!pay.isPaid()){
-                model.addAttribute("orderProducts",pay.getOrderProductSet());
-                model.addAttribute("orderId",pay.getId());
+//                model.addAttribute("orderProducts",pay.getOrderProductSet());
+                model.addAttribute("order",pay);
+//                model.addAttribute("orderId",pay.getId());
+
             }
         }
         return "basket";

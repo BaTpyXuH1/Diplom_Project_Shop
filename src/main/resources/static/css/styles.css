@@ -2,6 +2,22 @@ body {
     padding: 0;
     margin: 0;
 }
+.price{
+    position:absolute;
+    bottom:200px;
+    right:350px;
+}
+.city{
+    position:absolute;
+    top:10px;
+    left:125px;
+}
+.pay{
+    position:absolute;
+    bottom:200px;
+    right:50px;
+
+}
 .wrapper_index {
     min-height: 100vh;
     width: 100%;
