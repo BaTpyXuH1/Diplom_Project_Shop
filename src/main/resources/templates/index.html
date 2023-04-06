@@ -9,13 +9,16 @@
 <body>
 <div class="wrapper_index">
     <div class="collapsible-menu">
-        <h1 class="text-center">Добро пожаловать [[${isAuth}]]!</h1>
+        <h1 class="text-center">Добро пожаловать [[${client}]]!</h1>
         <input type="checkbox" id="menu">
         <label for="menu">Меню</label>
         <div class="menu-content">
             <ul>
                 <li><a th:href="@{/client/}"><h1 style="color: blue" th:if="${isAuth == 'ADMIN'}">Страница админа</h1>
                 </a></li>
+                <li>
+                    <a th:href="@{/account}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">
+                        Личный кабинет</h1></a></li>
                 <li><a th:href="@{/catalog}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">
                     Каталог</h1></a></li>
                 <li><a th:href="@{/basket}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: red">

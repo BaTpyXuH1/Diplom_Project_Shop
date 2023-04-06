@@ -48,7 +48,7 @@
         </form>
         <br>
         <h3 class="city1">Город получения : </h3>
-        <div class="city" th:each="order :${order}">
+        <div class="city">
             <a th:href="@{'/order/update/' + ${order.id}}"><h1>[[${order.description}]]</h1></a>
         </div><br>
         <h1><a th:href="@{/}">Вернуться на главную</a></h1>
