@@ -7,13 +7,12 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="wrapper_list text-center">
-        <h1>Описание покупателя</h1>
-        <div>
-            <h2>[[${client}]]</h2><br><br>
-            <a th:if="${isAuth == 'ADMIN'}" th:href="@{/client/}" class="btn btn-dark"><h1>Назад</h1></a>
-            <a th:if="${isAuth == 'USER'}" th:href="@{/}" class="btn btn-dark"><h1>Назад</h1></a>
-        </div>
+<div class="wrapper_list text-center">
+    <h1>Описание покупателя</h1>
+    <div>
+        <a th:if="${isAuth == 'ADMIN'}" th:href="@{/client/}" class="btn btn-dark"><h1>Назад</h1></a>
+        <a th:if="${isAuth == 'USER'}" th:href="@{/}" class="btn btn-dark"><h1>Назад</h1></a>
     </div>
+</div>
 </body>
 </html>

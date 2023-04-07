@@ -37,8 +37,8 @@ public class WebSecurityConfig {
 
                                 .requestMatchers("/admin/*","/product/*").hasRole("ADMIN") //если стоит у админа ,то юзер не видит "/orderProduct/*",
                                 .requestMatchers("/product","/registration", "/service/generateBase","/product","/client/add").anonymous()
-                                .requestMatchers( "/client/add", "/logout","/order/update/*","/orderProduct/**", "/product/add","/catalog/*","/goods/**","/cart/addProduct/*").authenticated()
-                                .requestMatchers( "/","/webjars/**","/product","/goods/**","/client/add").permitAll()
+                                .requestMatchers( "/client/add", "/logout","/order/update/*","/orderProduct/**","/client/update/*", "/product/add","/catalog/*","/goods/**","/cart/addProduct/*").authenticated()
+                                .requestMatchers( "/","/webjars/**","/product","/goods/**","/client/add","/client/update").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

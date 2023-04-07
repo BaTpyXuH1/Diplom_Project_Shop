@@ -136,7 +136,7 @@ public class Client implements UserDetails {
 
     @Override
     public String toString() {
-        return  clientName;
+        return "Имя клиента : " + clientName;
     }
 
 }

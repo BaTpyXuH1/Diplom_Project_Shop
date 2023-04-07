@@ -9,7 +9,7 @@
 <body>
 <a th:href="@{/}" th:if="${isAuth == 'USER' && isAuth !='anon'}" ><h1>Вернуться на главную</h1></a>
 <div th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" class="wrapper_list text-center">
-    <h1>Пункт выдачи товара</h1>
+    <h1>Заказы</h1>
     <div>
         <table class="table table-bordered">
             <thead class="table-dark">

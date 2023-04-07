@@ -7,10 +7,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<a th:href="@{/}" th:if="${isAuth == 'USER' && isAuth !='anon'}" ><h1>Вернуться на главную</h1></a>
-<div th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" class="wrapper_list text-center">
+<div class="wrapper_list text-center">
     <h1>Список покупателей</h1>
-    [[${isAuth}]]
     <div>
         <table class="table table-bordered">
             <thead class="table-dark">
@@ -38,7 +36,7 @@
             <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/product/}" class="btn btn-primary">Список
                 товаров</a><br><br>
             <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/order/}" class="btn btn-warning">Заказ</a><br><br>
-            <a th:href="@{/orderProduct/}" class="btn btn-danger">Заказ товаров</a>
+            <a th:if="${isAuth == 'ADMIN' && isAuth !='anon'}" th:href="@{/orderProduct/}" class="btn btn-danger">Заказ товаров</a>
         </div>
         <br>
         <h1><a th:href="@{/}">Вернутся на главную</a></h1>
