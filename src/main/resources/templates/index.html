@@ -16,7 +16,7 @@
             <ul>
                 <li><a th:href="@{/client/}"><h1 style="color: blue" th:if="${isAuth == 'ADMIN'}">Страница админа</h1>
                 </a></li>
-                <li><a th:if="${isAuth == 'USER' &&  isAuth != 'anon'}" th:href="@{/client/client-detail}"><h1>Личный кабинет</h1></a>
+                <li><a th:if="${isAuth == 'USER' && isAuth !='anon'}" th:href="@{'/client/update/' + ${clientId}}">Изменить имя</a>
                 </li>
                 <li><a th:href="@{/catalog}" th:if="${isAuth == 'USER' &&  isAuth != 'anon'}"><h1 style="color: blue">
                     Каталог</h1></a></li>

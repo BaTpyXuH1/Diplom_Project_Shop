@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.top.diplom_project_shop.model.dao.client.IDaoClient;
 import org.top.diplom_project_shop.model.dao.order.IDaoOrder;
 import org.top.diplom_project_shop.model.entity.Client;
@@ -27,7 +28,10 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model,Authentication auth) {
+        if(auth != null){
+            model.addAttribute("clientId",daoClient.getClientByLogin(auth.getName()).getId());
+        }
         return "index";
     }
 
@@ -42,7 +46,7 @@ public class MainController {
     }
 
     @GetMapping("/registration")
-    public String index(Model model) {
+    public String index(Model model, RedirectAttributes ra) {
         model.addAttribute("client", new Client());
         return "registration";
 

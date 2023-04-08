@@ -15,17 +15,19 @@
             <thead class="table-dark">
             <tr>
                 <th>Количество товаров</th>
+                <th>Клиент</th>
                 <th>Название товара</th>
                 <th>Товар</th>
                 <th>Цена $</th>
                 <th>Артикул</th>
-                <th th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">Меню навигации</th>
+                <th th:if="${isAuth == 'ADMIN' && isAuth !='anon'}">Редактировать</th>
             </tr>
             </thead>
             <tbody>
             <th:block th:each="orderProduct :${orderProducts}">
                 <tr>
                     <td><h1>[[${orderProduct.quantityProduct}]]</h1></td>
+                    <td><h1>[[${orderProduct.order.client.clientName}]]</h1></td>
                     <td><h1>[[${orderProduct.product.productName}]]</h1></td>
                     <td>
                         <a th:href="@{'/orderProduct/detail/' + ${orderProduct.id}}">

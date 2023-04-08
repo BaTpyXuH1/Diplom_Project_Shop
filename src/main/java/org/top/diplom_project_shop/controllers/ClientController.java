@@ -31,6 +31,7 @@ public class ClientController {
             return "registration";
         }
         Client client = new Client(username, password);
+        client.setClientName(username);
         if (client.getLogin().equals("admin"))
             client.setRole("ADMIN");
         else
