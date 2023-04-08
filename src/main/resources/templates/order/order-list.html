@@ -22,7 +22,7 @@
             </thead>
             <tbody>
             <th:block th:each="order :${orders} ">
-                <tr>
+                <tr th:if="${order.client.clientName != 'ADMIN'}">
                     <td><h1>[[${order.id}]]</h1></td>
                     <td>
                         <a th:href="@{'/order/detail/' + ${order.id}}" class="btn"><h1>[[${order.description}]]</h1></a>

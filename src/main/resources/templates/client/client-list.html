@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <th:block th:each="client: ${clients}">
-                <tr>
+                <tr th:if="${client.clientName != 'ADMIN'}">
                     <td><h1>[[${client.id}]]</h1></td>
                     <td><h1>[[${client.clientName}]]</h1></td>
                     <td>
