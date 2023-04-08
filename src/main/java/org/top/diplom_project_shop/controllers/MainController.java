@@ -31,6 +31,7 @@ public class MainController {
     public String index(Model model,Authentication auth) {
         if(auth != null){
             model.addAttribute("clientId",daoClient.getClientByLogin(auth.getName()).getId());
+            model.addAttribute("client",daoClient.getClientByLogin(auth.getName()).getClientName());
         }
         return "index";
     }

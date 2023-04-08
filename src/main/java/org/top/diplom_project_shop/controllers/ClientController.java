@@ -77,7 +77,7 @@ public class ClientController {
     @PostMapping("/update/")
     public String updateClient(Client client){
         daoClient.update(client);
-        return "redirect:/client/";
+        return "redirect:/";
     }
 
     @GetMapping("/detail/{id}")
